@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Image/Search.png</file>
+        <file>Image/QuestionMark.png</file>
+        <file>Image/Downarrow.png</file>
+        <file>Image/flash1.png</file>
+        <file>Image/Airaa_Logo.png</file>
+        <file>Image/add.png</file>
+        <file>Image/clear.png</file>
+        <file>Image/maxid.png</file>
+        <file>Image/closeid.png</file>
+        <file>Image/minid.png</file>
+        <file>Image/close.png</file>
+        <file>Image/close3.png</file>
+        <file>Image/tick_icon.png</file>
+        <file>Image/Close_red.png</file>
+    </qresource>
+</RCC>
