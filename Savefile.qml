@@ -7,7 +7,7 @@ Item {
     height: 300
     visible: true
     id: saveid
-    anchors.centerIn: parent
+    // anchors.centerIn: parent
 
     Rectangle {
         width: 540
@@ -24,6 +24,7 @@ Item {
             Text {
                 id: txtid
                 text: qsTr(" Save Statistic File")
+                font.family: "Helvetica"
                 x: 5
                 y: 1
                 font.pointSize: 13
@@ -35,7 +36,6 @@ Item {
             width: 25
             height: 25
             x: 514
-
                 Image {
                     id: close
                     source: "qrc:/Image/Close_red.png"
@@ -79,6 +79,7 @@ Item {
                     width: 150
                     height: 37
                     placeholderText: "Search"
+                    font.family: "Helvetica"
                 }
 
                 Image {
@@ -98,11 +99,13 @@ Item {
                 y: 10
                 text: "File Name: "
                 font.pointSize: 13
+                font.family: "Helvetica"
             }
 
             TextField {
                 id: field
                 placeholderText: "Name"
+                font.family: "Helvetica"
             }
         }
 
@@ -111,6 +114,7 @@ Item {
             Label {
                 text: "File Type:   "
                 font.pointSize: 13
+                font.family: "Helvetica"
             }
 
             Frame {
@@ -127,6 +131,7 @@ Item {
                     height: 32
                     anchors.centerIn: rect3id
                     font.pointSize: 13
+                    font.family: "Helvetica"
                     model: [".xls", ".dox", ".pdf", ".exe", ".tar"]
                 }
             }
@@ -142,6 +147,7 @@ Item {
                 text: "Save"
                 width: 100
                 height: 40
+                font.family: "Helvetica"
                 onClicked: popup.open()
 
                 Popup {
@@ -166,6 +172,7 @@ Item {
                                 id: txt
                                 y: 10
                                 text: qsTr("Saved Successfully!")
+                                font.family: "Helvetica"
                                 anchors.centerIn: popup
                                 font.pointSize: 13
                             }
@@ -180,6 +187,7 @@ Item {
                 text: "Cancel"
                 width: 100
                 height: 40
+                font.family: "Helvetica"
                 onClicked: {
                     saveid.visible = false
                     Settingspage.visible = true

@@ -4,10 +4,32 @@ import QtQuick.Controls 2.15
 
 Item {
     id: settid
-    width: 640
-    height: 470
+
+    property real scalefactor : {
+        if(Screen.width > 1920) return 1.2
+        else if(Screen.height < 1080) return 0.8
+        else return 1
+    }
+    height: parent.height
+    width: parent.width
     visible: true
-    anchors.centerIn: parent
+
+    property var previousSerialPortInfoList: []  //to store the data
+
+    function clearData() {
+        serialPortInfoViewer.clearData();
+    }
+
+    function openTerminalBasedOnOS() {
+        var selectedOS = _comb.currentText;
+        console.log("Selected OS: " + selectedOS);
+
+        if (selectedOS === "Windows") {
+            terminalController.openTerminal("Windows");
+        } else if (selectedOS === "Linux") {
+            terminalController.openTerminal("Linux");
+        }
+    }
 
     Rectangle {
         id: homeid
@@ -16,176 +38,185 @@ Item {
         border.width: 1
 
         Rectangle {
-            width: 640
-            height: 25
+            id:one
+            height: Math.round(33*scalefactor)
+            width: parent.width
+            visible: true
             color: "#777f8c"
 
             Row {
-                spacing: 555
-
+                anchors.fill: parent
                 Text {
                     id: txtid
                     text: qsTr(" Setting")
-                    x: 5
-                    y: 1
-                    font.pointSize: 13
-                    color: "white"
+                    font.family: "Helvetica"
+                    font.pointSize: Screen.height * 0.017
+                    color: "#FFFFFF"
+                    leftPadding: 15
+                }
+                Rectangle{
+
+                    id:closerect
+                    height: Math.round(33*scalefactor)
+
+                    width: Math.round(30*scalefactor)
+
+                    color:"#a9a9a9"
+                    anchors.right: parent.right
+
+                    Text {
+                        id: closetext
+                        text: qsTr("X")
+                        font.pixelSize: 25
+                        color: "white"
+                        font.bold: true
+                        anchors.centerIn: parent
+                    }
+                    MouseArea{
+
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        onEntered: closerect.color="#777f8c"
+                        onExited: closerect.color="#a9a9a9"
+                        onClicked: {
+                            settid.visible = false
+                            closerect.visible=flase
+                        }
+                    }
                 }
 
-                Button {
-                id: closeid
-                width: 25
-                height: 25
-                x: 574
 
-                    Image {
-                        id: close
-                        source: "qrc:/Image/Close_red.png"
-                        width: 25
-                        height: 25
-                        anchors.centerIn: closeid
-                    }
+                // Button {
+                //     id: closeid
+                //     height: Math.round(33*scalefactor)
+                //     width: Math.round(30*scalefactor)
+                //     anchors.right: parent.right
 
+                //     Image {
+                //         id: close
+                //         source: "qrc:/Image/Close_red.png"
+                //         height: Math.round(33*scalefactor)
+                //         width: Math.round(30*scalefactor)
+                //         anchors.fill: parent
+                //     }
+                //     onClicked: {
+                //         settid.visible = false
+                //     }
+                // }
+            }
+        }
+
+        Text {
+            anchors {
+                top: one.bottom
+                left: parent.left
+                topMargin: Math.round(35 * scalefactor)
+                leftMargin: Math.round(20 * scalefactor)
+            }
+            id: deviceInfoRect
+            text: qsTr("Auto Scripts")
+            font.pointSize: Screen.height * 0.017
+            font.family: "Helvetica"
+        }
+        Rectangle {
+            // height: Math.round(520*scalefactor)
+            // width: Math.round(760*scalefactor)
+            height: 0.600*parent.height
+            width: 0.950*parent.width
+            anchors {
+                left: parent.left
+                leftMargin: Math.round(20 * scalefactor)
+                top: deviceInfoRect.bottom
+                topMargin: Math.round(20 * scalefactor)
+            }
+            border.color: "black"
+            Repeater {
+                model: serialPortInfoViewer ? serialPortInfoViewer.serialPortInfoList : []
+                MouseArea {
+
+                    anchors.fill: parent
                     onClicked: {
-                        settid.visible = false
+                        serialPortInfoViewer.showDeviceInfo(modelData["portName"]);
+                    }
+                    Text {
+                        anchors.right: parent.right
+                        textFormat: Text.RichText
+                        font.pointSize: Screen.height * 0.017
+                        font.family: "Helvetica"
+                        text: {
+                            var info = modelData;
+                            var serialNumber = info["serialNumber"] || "Not Available";
+                            return "Port Name: " + info["portName"] +
+                                    "<br>Operating System: " + serialPortInfoViewer.serialPortInfoList[0].os +
+                                    "<br>Location: " + info["location"] +
+                                    "<br>Description: " + info["description"] +
+                                    "<br>Manufacturer: " + info["manufacturer"] +
+                                    "<br>Serial number: " + serialNumber +
+                                    "<br>Vendor Identifier: " + info["vendorIdentifier"] +
+                                    "<br>Product Identifier: " + info["productIdentifier"];
+                        }
                     }
                 }
             }
         }
 
-        GroupBox {
-            y: 30
-            title: "General Properties "
-            font.pointSize: 13
-            width: 600
-            height: 350
-            x: 20
-
-            Column {
-                spacing: 13
-
-                Row {
-                    spacing: 13
-                    y: 13
-
-                    Text {
-                        text: "Device Info"
-                        font.pointSize: 13
-                    }
-
-                    Rectangle {
-                        width: 250
-                        height: 100
-                        border.color: "lightgray"
-                        border.width: 1
-
-                        ScrollView {
-                            anchors.fill: parent
-
-                            Repeater {
-                                model: serialPortInfoViewer ? serialPortInfoViewer.serialPortInfoList : []
-
-                                Text {
-                                    anchors.centerIn: parent
-                                    textFormat: Text.RichText
-                                    text: {
-                                        var info = modelData;
-                                        return "Port Name: " + info["portName"] +
-                                               // "<br>Location: " + info["location"] +
-                                               // "<br>Description: " + info["description"] +
-                                               // "<br>Manufacturer: " + info["manufacturer"] +
-                                               "<br>Serial number: " + info["serialNumber"] +
-                                               "<br>Vendor Identifier: " + info["vendorIdentifier"] +
-                                               "<br>Product Identifier: " + info["productIdentifier"];
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                Label {
-                    text: "Options"
-                    font.pointSize: 13
-                }
-
-                RowLayout {
-                    x: 30
-                    spacing: 20
-
-                    Text {
-                        id: osid
-                        text: "OS Flags "
-                        font.pointSize: 13
-                    }
-
-                    ComboBox {
-                        id: _comb
-                        visible: true
-                        width: 200
-                        model: ["Windows", "Linux", "IOS", "Android", "Cloud Based OS"]
-
-                        onCurrentIndexChanged: {
-                            if (currentIndex === 4) {
-                                _combos.visible = true;
-                                _comb.visible = true;
-                            } else {
-                                _combos.visible = false;
-                                _comb.visible = true;
-                            }
-                        }
-                    }
-
-                    ComboBox {
-                        id: _combos
-                        width: 80
-                        visible: false
-                        model: ["Netvibes", "CloudMe", "Amoeba", "EyeOS","Ghost OS","OSv","Joli OS","Slap OS","Slive OS","LucidLink OS" ]
-                    }
-                }
-
-                Button {
-                    x: 500
-                    // y: 300
-                    text: "Reset"
-                    width: 80
-                    height: 40
-                    font.pointSize: 13
-                }
-            }
-        }
-
-        RowLayout {
-            x: 310
-            y: 410
-            spacing: 5
-
-            Button {
-                text: "OK"
-                width: 100
-                height: 30
+        Row {
+            spacing: 20
+            anchors {
+                bottom: parent.bottom
+                bottomMargin: Math.round(40 * scalefactor)
+                horizontalCenter: parent.horizontalCenter
             }
 
             Button {
-                text: "Apply"
-                width: 100
-                height: 30
-            }
-
-            Button {
-                text: "Cancel"
-                width: 100
-                height: 30
+                id: okButton
+                Text {
+                    text:"OK"
+                    font.family: "Helvetica"
+                    font.pointSize: Screen.height * 0.015
+                    font.bold: true
+                    color: "white"
+                    anchors.centerIn: parent
+                }
+                height: Math.round(60*scalefactor)
+                width: Math.round(200*scalefactor)
+                background: Rectangle{
+                    radius: 60
+                    color: "#777f8c"
+                }
                 onClicked: {
-                    settid.visible = false
                 }
             }
-        }
 
+            // Button {
+            //     text: "Cancel"
+            //     font.family: "Helvetica"
+            //     font.bold: true
+            //     font.pointSize: Screen.height * 0.017
+            //     height: Math.round(60*scalefactor)
+            //     width: Math.round(260*scalefactor)
+            //     onClicked: {
+            //         settid.visible = false;
+            //     }
+            // }
+        }
         Connections {
             target: serialPortInfoViewer
             onSerialPortInfoChanged: {
-                console.log("Serial port info changed");
+                // Check if the data has changed before updating the UI
+                if (serialPortInfoViewer.serialPortInfoList !== previousSerialPortInfoList) {
+                    console.log("Serial port info changed");
+                    // Update UI or emit signals here
+                    previousSerialPortInfoList = serialPortInfoViewer.serialPortInfoList;
+                }
+            }
+            onConnectionStateChanged: {
+                //connection state changes here
+                if (serialPortInfoViewer.isConnected) {
+                    console.log("Device connected");
+                } else {
+                    console.log("Device disconnected");
+                }
             }
         }
     }

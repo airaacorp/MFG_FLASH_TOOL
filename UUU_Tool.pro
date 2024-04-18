@@ -2,6 +2,10 @@ QT += quick quickcontrols2
 QT += core
 QT += gui
 QT += serialport
+CONFIG += console
+
+# CONFIG += c++11
+#QT += androidextras
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -9,7 +13,10 @@ QT += serialport
 
 SOURCES += \
         SerialCommunication.cpp \
-        main.cpp
+        commandLauncher.cpp \
+        data.cpp \
+        main.cpp \
+        serialportinfoviewer.cpp
 
 OTHER_FILES += LICENSE
 
@@ -28,6 +35,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    SerialCommunication.h
+    SerialCommunication.h \
+    commandLauncher.h \
+    data.h \
+    serialportinfoviewer.h
 
 DISTFILES +=

@@ -14,5 +14,9 @@
         <file>Image/close3.png</file>
         <file>Image/tick_icon.png</file>
         <file>Image/Close_red.png</file>
+        <file>Image/3.png</file>
+        <file>Image/2.png</file>
+        <file>Image/1.png</file>
+        <file>Image/BackButton.png</file>
     </qresource>
 </RCC>

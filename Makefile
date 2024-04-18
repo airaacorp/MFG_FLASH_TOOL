@@ -17,7 +17,7 @@ CXX           = g++
 DEFINES       = -DQT_QML_DEBUG -DQT_QUICKCONTROLS2_LIB -DQT_QUICK_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_QMLMODELS_LIB -DQT_QML_LIB -DQT_QMLINTEGRATION_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
 CXXFLAGS      = -pipe -g -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
-INCPATH       = -I. -I../../Qt/6.6.1/gcc_64/include -I../../Qt/6.6.1/gcc_64/include/QtQuickControls2 -I../../Qt/6.6.1/gcc_64/include/QtQuick -I../../Qt/6.6.1/gcc_64/include/QtOpenGL -I../../Qt/6.6.1/gcc_64/include/QtGui -I../../Qt/6.6.1/gcc_64/include/QtQmlModels -I../../Qt/6.6.1/gcc_64/include/QtQml -I../../Qt/6.6.1/gcc_64/include/QtQmlIntegration -I../../Qt/6.6.1/gcc_64/include/QtNetwork -I../../Qt/6.6.1/gcc_64/include/QtSerialPort -I../../Qt/6.6.1/gcc_64/include/QtCore -I. -I../../Qt/6.6.1/gcc_64/mkspecs/linux-g++
+INCPATH       = -I. -I/home/test/Qt/6.6.1/gcc_64/include -I/home/test/Qt/6.6.1/gcc_64/include/QtQuickControls2 -I/home/test/Qt/6.6.1/gcc_64/include/QtQuick -I/home/test/Qt/6.6.1/gcc_64/include/QtOpenGL -I/home/test/Qt/6.6.1/gcc_64/include/QtGui -I/home/test/Qt/6.6.1/gcc_64/include/QtQmlModels -I/home/test/Qt/6.6.1/gcc_64/include/QtQml -I/home/test/Qt/6.6.1/gcc_64/include/QtQmlIntegration -I/home/test/Qt/6.6.1/gcc_64/include/QtNetwork -I/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort -I/home/test/Qt/6.6.1/gcc_64/include/QtCore -I. -I/home/test/Qt/6.6.1/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/test/Qt/6.6.1/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = UUU_Tool1.0.0
-DISTDIR = /home/test/StandUp/UUU_Tool/.tmp/UUU_Tool1.0.0
+DISTDIR = /home/test/Downloads/MFG_FLASH_TOOL\ 1/MFG_FLASH_TOOL/MFG_FLASH_TOOL/UUU_Tool/.tmp/UUU_Tool1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/test/Qt/6.6.1/gcc_64/lib -Wl,-rpath-link,/home/test/Qt/6.6.1/gcc_64/lib
 LIBS          = $(SUBLIBS) /home/test/Qt/6.6.1/gcc_64/lib/libQt6QuickControls2.so /home/test/Qt/6.6.1/gcc_64/lib/libQt6Quick.so /home/test/Qt/6.6.1/gcc_64/lib/libQt6OpenGL.so /home/test/Qt/6.6.1/gcc_64/lib/libQt6Gui.so /home/test/Qt/6.6.1/gcc_64/lib/libQt6QmlModels.so /home/test/Qt/6.6.1/gcc_64/lib/libQt6Qml.so /home/test/Qt/6.6.1/gcc_64/lib/libQt6Network.so /home/test/Qt/6.6.1/gcc_64/lib/libQt6SerialPort.so -pthread /home/test/Qt/6.6.1/gcc_64/lib/libQt6Core.so -lpthread -lGL   
@@ -52,187 +52,216 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = main.cpp qrc_qml.cpp \
-		qrc_Resources.cpp
-OBJECTS       = main.o \
+SOURCES       = SerialCommunication.cpp \
+		commandLauncher.cpp \
+		data.cpp \
+		main.cpp \
+		serialportinfoviewer.cpp qrc_qml.cpp \
+		qrc_Resources.cpp \
+		moc_SerialCommunication.cpp \
+		moc_commandLauncher.cpp \
+		moc_data.cpp \
+		moc_serialportinfoviewer.cpp
+OBJECTS       = SerialCommunication.o \
+		commandLauncher.o \
+		data.o \
+		main.o \
+		serialportinfoviewer.o \
 		qrc_qml.o \
-		qrc_Resources.o
-DIST          = ../../Qt/6.6.1/gcc_64/mkspecs/features/spec_pre.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/common/unix.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/common/linux.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/common/sanitize.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/common/gcc-base.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/common/gcc-base-unix.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/common/g++-base.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/common/g++-unix.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/qconfig.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_ext_libjpeg.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_ext_libpng.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_concurrent.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_core.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_core_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_dbus.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designer.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designer_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_example_icons_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_fb_support_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_gui.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_gui_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_harfbuzz_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_help.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_help_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_input_support_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_jpeg_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_kms_support_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsanimation.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsanimation_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsfolderlistmodel_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsqmlmodels.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsqmlmodels_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssettings.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssettings_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssharedimage.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssharedimage_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_linguist.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_linguist_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimedia.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediaquick_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_network.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_network_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_opengl.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_openglwidgets.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_openglwidgets_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_png_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_printsupport.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatch_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchconversionsprivate.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchconversionsprivate_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchgeneratorsprivate.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchgeneratorsprivate_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qml.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qml_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcompiler.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcompiler_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcore.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcore_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmldebug_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmldom_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlintegration.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlintegration_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmllocalstorage.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmllocalstorage_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlls_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlmodels.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlmodels_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltest.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltoolingsettings_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltyperegistrar_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlworkerscript.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2impl.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2impl_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrolstestutilsprivate_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2utils.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2utils_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickeffects_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicklayouts.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicklayouts_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickshapes_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktemplates2.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktestutilsprivate_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktimeline.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktimeline_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjects.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjects_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjectsqml.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjectsqml_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_repparser.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_repparser_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_serialport.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_spatialaudio.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_spatialaudio_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_sql.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_sql_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svg.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svg_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svgwidgets.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svgwidgets_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_testlib.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_tools_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uitools.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_virtualkeyboard.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_virtualkeyboard_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_wayland_egl_client_hw_integration_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandclient.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandclient_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandglobal_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_widgets.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_wl_shell_integration_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xml.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xml_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/qt_functions.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/qt_config.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/linux-g++/qmake.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/spec_post.prf \
+		qrc_Resources.o \
+		moc_SerialCommunication.o \
+		moc_commandLauncher.o \
+		moc_data.o \
+		moc_serialportinfoviewer.o
+DIST          = /home/test/Qt/6.6.1/gcc_64/mkspecs/features/spec_pre.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/common/unix.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/common/linux.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/common/sanitize.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/common/gcc-base.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/common/gcc-base-unix.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/common/g++-base.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/common/g++-unix.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/qconfig.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_ext_libjpeg.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_ext_libpng.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_concurrent.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_core.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_core_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_dbus.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designer.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designer_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_example_icons_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_fb_support_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_gui.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_gui_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_harfbuzz_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_help.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_help_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_input_support_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_jpeg_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_kms_support_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsanimation.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsanimation_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsfolderlistmodel_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsqmlmodels.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsqmlmodels_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssettings.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssettings_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssharedimage.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssharedimage_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_linguist.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_linguist_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimedia.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediaquick_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_network.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_network_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_networkauth.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_networkauth_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_nfc.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_opengl.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_openglwidgets.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_openglwidgets_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_png_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_printsupport.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatch_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchconversionsprivate.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchconversionsprivate_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchgeneratorsprivate.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchgeneratorsprivate_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qml.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qml_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcompiler.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcompiler_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcore.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcore_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmldebug_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmldom_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlintegration.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlintegration_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmllocalstorage.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmllocalstorage_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlls_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlmodels.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlmodels_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltest.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltoolingsettings_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltyperegistrar_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlworkerscript.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2impl.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2impl_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrolstestutilsprivate_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2utils.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2utils_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickeffects_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicklayouts.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicklayouts_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickshapes_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktemplates2.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktestutilsprivate_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktimeline.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktimeline_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjects.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjects_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjectsqml.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjectsqml_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_repparser.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_repparser_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_serialport.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_spatialaudio.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_spatialaudio_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_sql.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_sql_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svg.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svg_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svgwidgets.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svgwidgets_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_testlib.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_tools_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uitools.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_virtualkeyboard.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_virtualkeyboard_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_wayland_egl_client_hw_integration_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandclient.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandclient_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandglobal_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_widgets.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_wl_shell_integration_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xml.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xml_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qt_functions.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qt_config.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/linux-g++/qmake.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/spec_post.prf \
 		.qmake.stash \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/exclusive_builds.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/toolchain.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/default_pre.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/resolve_config.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/default_post.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/qml_debug.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/warn_on.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/permissions.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/qt.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/resources_functions.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/resources.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/moc.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/unix/opengl.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/unix/thread.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/qmake_use.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/file_copies.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/testcase_targets.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/exceptions.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/yacc.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/lex.prf \
-		UUU_Tool.pro  main.cpp
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/exclusive_builds.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/toolchain.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/default_pre.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/resolve_config.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/default_post.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qml_debug.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/warn_on.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/permissions.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qt.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/resources_functions.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/resources.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/moc.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/unix/opengl.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/unix/thread.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qmake_use.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/file_copies.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/testcase_targets.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/exceptions.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/yacc.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/lex.prf \
+		UUU_Tool.pro SerialCommunication.h \
+		commandLauncher.h \
+		data.h \
+		serialportinfoviewer.h SerialCommunication.cpp \
+		commandLauncher.cpp \
+		data.cpp \
+		main.cpp \
+		serialportinfoviewer.cpp
 QMAKE_TARGET  = UUU_Tool
 DESTDIR       = 
 TARGET        = UUU_Tool
@@ -244,381 +273,393 @@ first: all
 UUU_Tool:  $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET)  $(OBJECTS) $(OBJCOMP) $(LIBS)
 
-Makefile: UUU_Tool.pro ../../Qt/6.6.1/gcc_64/mkspecs/linux-g++/qmake.conf ../../Qt/6.6.1/gcc_64/mkspecs/features/spec_pre.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/common/unix.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/common/linux.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/common/sanitize.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/common/gcc-base.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/common/gcc-base-unix.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/common/g++-base.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/common/g++-unix.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/qconfig.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_ext_libjpeg.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_ext_libpng.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_concurrent.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_core.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_core_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_dbus.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designer.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designer_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_example_icons_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_fb_support_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_gui.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_gui_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_harfbuzz_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_help.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_help_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_input_support_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_jpeg_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_kms_support_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsanimation.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsanimation_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsfolderlistmodel_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsqmlmodels.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsqmlmodels_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssettings.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssettings_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssharedimage.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssharedimage_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_linguist.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_linguist_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimedia.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediaquick_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_network.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_network_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_opengl.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_openglwidgets.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_openglwidgets_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_png_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_printsupport.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatch_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchconversionsprivate.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchconversionsprivate_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchgeneratorsprivate.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchgeneratorsprivate_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qml.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qml_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcompiler.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcompiler_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcore.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcore_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmldebug_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmldom_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlintegration.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlintegration_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmllocalstorage.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmllocalstorage_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlls_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlmodels.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlmodels_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltest.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltoolingsettings_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltyperegistrar_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlworkerscript.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2impl.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2impl_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrolstestutilsprivate_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2utils.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2utils_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickeffects_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicklayouts.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicklayouts_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickshapes_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktemplates2.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktestutilsprivate_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktimeline.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktimeline_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjects.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjects_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjectsqml.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjectsqml_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_repparser.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_repparser_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_serialport.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_spatialaudio.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_spatialaudio_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_sql.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_sql_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svg.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svg_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svgwidgets.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svgwidgets_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_testlib.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_tools_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uitools.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_virtualkeyboard.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_virtualkeyboard_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_wayland_egl_client_hw_integration_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandclient.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandclient_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandglobal_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_widgets.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_wl_shell_integration_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xml.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xml_private.pri \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/qt_functions.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/qt_config.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/linux-g++/qmake.conf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/spec_post.prf \
+Makefile: UUU_Tool.pro /home/test/Qt/6.6.1/gcc_64/mkspecs/linux-g++/qmake.conf /home/test/Qt/6.6.1/gcc_64/mkspecs/features/spec_pre.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/common/unix.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/common/linux.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/common/sanitize.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/common/gcc-base.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/common/gcc-base-unix.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/common/g++-base.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/common/g++-unix.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/qconfig.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_ext_libjpeg.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_ext_libpng.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_concurrent.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_core.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_core_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_dbus.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designer.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designer_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_example_icons_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_fb_support_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_gui.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_gui_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_harfbuzz_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_help.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_help_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_input_support_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_jpeg_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_kms_support_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsanimation.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsanimation_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsfolderlistmodel_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsqmlmodels.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsqmlmodels_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssettings.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssettings_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssharedimage.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssharedimage_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_linguist.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_linguist_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimedia.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediaquick_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_network.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_network_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_networkauth.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_networkauth_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_nfc.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_opengl.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_openglwidgets.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_openglwidgets_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_png_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_printsupport.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatch_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchconversionsprivate.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchconversionsprivate_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchgeneratorsprivate.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchgeneratorsprivate_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qml.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qml_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcompiler.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcompiler_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcore.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcore_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmldebug_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmldom_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlintegration.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlintegration_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmllocalstorage.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmllocalstorage_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlls_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlmodels.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlmodels_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltest.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltoolingsettings_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltyperegistrar_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlworkerscript.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2impl.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2impl_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrolstestutilsprivate_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2utils.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2utils_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickeffects_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicklayouts.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicklayouts_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickshapes_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktemplates2.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktestutilsprivate_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktimeline.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktimeline_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjects.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjects_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjectsqml.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjectsqml_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_repparser.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_repparser_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_serialport.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_spatialaudio.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_spatialaudio_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_sql.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_sql_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svg.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svg_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svgwidgets.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svgwidgets_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_testlib.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_tools_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uitools.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_virtualkeyboard.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_virtualkeyboard_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_wayland_egl_client_hw_integration_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandclient.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandclient_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandglobal_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_widgets.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_wl_shell_integration_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xml.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xml_private.pri \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qt_functions.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qt_config.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/linux-g++/qmake.conf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/spec_post.prf \
 		.qmake.stash \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/exclusive_builds.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/toolchain.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/default_pre.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/resolve_config.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/default_post.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/qml_debug.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/warn_on.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/permissions.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/qt.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/resources_functions.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/resources.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/moc.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/unix/opengl.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/unix/thread.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/qmake_use.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/file_copies.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/testcase_targets.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/exceptions.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/yacc.prf \
-		../../Qt/6.6.1/gcc_64/mkspecs/features/lex.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/exclusive_builds.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/toolchain.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/default_pre.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/resolve_config.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/default_post.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qml_debug.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/warn_on.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/permissions.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qt.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/resources_functions.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/resources.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/moc.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/unix/opengl.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/unix/thread.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qmake_use.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/file_copies.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/testcase_targets.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/exceptions.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/yacc.prf \
+		/home/test/Qt/6.6.1/gcc_64/mkspecs/features/lex.prf \
 		UUU_Tool.pro \
 		qml.qrc \
 		Resources.qrc \
-		../../Qt/6.6.1/gcc_64/lib/libQt6QuickControls2.prl \
-		../../Qt/6.6.1/gcc_64/lib/libQt6Quick.prl \
-		../../Qt/6.6.1/gcc_64/lib/libQt6OpenGL.prl \
-		../../Qt/6.6.1/gcc_64/lib/libQt6Gui.prl \
-		../../Qt/6.6.1/gcc_64/lib/libQt6QmlModels.prl \
-		../../Qt/6.6.1/gcc_64/lib/libQt6Qml.prl \
-		../../Qt/6.6.1/gcc_64/lib/libQt6Network.prl \
-		../../Qt/6.6.1/gcc_64/lib/libQt6SerialPort.prl \
-		../../Qt/6.6.1/gcc_64/lib/libQt6Core.prl
+		/home/test/Qt/6.6.1/gcc_64/lib/libQt6QuickControls2.prl \
+		/home/test/Qt/6.6.1/gcc_64/lib/libQt6Quick.prl \
+		/home/test/Qt/6.6.1/gcc_64/lib/libQt6OpenGL.prl \
+		/home/test/Qt/6.6.1/gcc_64/lib/libQt6Gui.prl \
+		/home/test/Qt/6.6.1/gcc_64/lib/libQt6QmlModels.prl \
+		/home/test/Qt/6.6.1/gcc_64/lib/libQt6Qml.prl \
+		/home/test/Qt/6.6.1/gcc_64/lib/libQt6Network.prl \
+		/home/test/Qt/6.6.1/gcc_64/lib/libQt6SerialPort.prl \
+		/home/test/Qt/6.6.1/gcc_64/lib/libQt6Core.prl
 	$(QMAKE) -o Makefile UUU_Tool.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
-../../Qt/6.6.1/gcc_64/mkspecs/features/spec_pre.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/common/unix.conf:
-../../Qt/6.6.1/gcc_64/mkspecs/common/linux.conf:
-../../Qt/6.6.1/gcc_64/mkspecs/common/sanitize.conf:
-../../Qt/6.6.1/gcc_64/mkspecs/common/gcc-base.conf:
-../../Qt/6.6.1/gcc_64/mkspecs/common/gcc-base-unix.conf:
-../../Qt/6.6.1/gcc_64/mkspecs/common/g++-base.conf:
-../../Qt/6.6.1/gcc_64/mkspecs/common/g++-unix.conf:
-../../Qt/6.6.1/gcc_64/mkspecs/qconfig.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_ext_libjpeg.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_ext_libpng.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_concurrent.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_core.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_core_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_dbus.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designer.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designer_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_example_icons_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_fb_support_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_gui.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_gui_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_harfbuzz_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_help.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_help_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_input_support_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_jpeg_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_kms_support_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsanimation.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsanimation_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsfolderlistmodel_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsqmlmodels.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsqmlmodels_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssettings.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssettings_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssharedimage.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssharedimage_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_linguist.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_linguist_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimedia.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediaquick_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_network.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_network_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_opengl.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_openglwidgets.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_openglwidgets_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_png_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_printsupport.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatch_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchconversionsprivate.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchconversionsprivate_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchgeneratorsprivate.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchgeneratorsprivate_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qml.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qml_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcompiler.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcompiler_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcore.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcore_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmldebug_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmldom_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlintegration.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlintegration_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmllocalstorage.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmllocalstorage_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlls_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlmodels.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlmodels_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltest.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltoolingsettings_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltyperegistrar_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlworkerscript.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2impl.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2impl_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrolstestutilsprivate_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2utils.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2utils_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickeffects_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicklayouts.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicklayouts_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickshapes_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktemplates2.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktestutilsprivate_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktimeline.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktimeline_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjects.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjects_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjectsqml.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjectsqml_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_repparser.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_repparser_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_serialport.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_spatialaudio.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_spatialaudio_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_sql.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_sql_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svg.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svg_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svgwidgets.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svgwidgets_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_testlib.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_tools_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uitools.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_virtualkeyboard.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_virtualkeyboard_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_wayland_egl_client_hw_integration_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandclient.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandclient_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandglobal_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_widgets.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_wl_shell_integration_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xml.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xml_private.pri:
-../../Qt/6.6.1/gcc_64/mkspecs/features/qt_functions.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/qt_config.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/linux-g++/qmake.conf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/spec_post.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/spec_pre.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/common/unix.conf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/common/linux.conf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/common/sanitize.conf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/common/gcc-base.conf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/common/gcc-base-unix.conf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/common/g++-base.conf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/common/g++-unix.conf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/qconfig.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_ext_libjpeg.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_ext_libpng.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_concurrent.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_core.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_core_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_dbus.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designer.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designer_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_example_icons_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_fb_support_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_gui.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_gui_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_harfbuzz_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_help.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_help_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_input_support_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_jpeg_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_kms_support_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsanimation.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsanimation_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsfolderlistmodel_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsqmlmodels.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labsqmlmodels_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssettings.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssettings_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssharedimage.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labssharedimage_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_linguist.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_linguist_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimedia.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediaquick_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_network.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_network_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_networkauth.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_networkauth_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_nfc.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_opengl.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_openglwidgets.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_openglwidgets_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_png_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_printsupport.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatch_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchconversionsprivate.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchconversionsprivate_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchgeneratorsprivate.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qdoccatchgeneratorsprivate_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qml.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qml_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcompiler.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcompiler_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcore.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlcore_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmldebug_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmldom_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlintegration.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlintegration_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmllocalstorage.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmllocalstorage_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlls_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlmodels.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlmodels_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltest.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltoolingsettings_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmltyperegistrar_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlworkerscript.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quick_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2impl.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrols2impl_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickcontrolstestutilsprivate_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2utils.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickdialogs2utils_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickeffects_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicklayouts.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicklayouts_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickshapes_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktemplates2.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktestutilsprivate_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktimeline.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quicktimeline_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjects.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjects_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjectsqml.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_remoteobjectsqml_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_repparser.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_repparser_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_serialport.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_spatialaudio.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_spatialaudio_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_sql.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_sql_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svg.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svg_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svgwidgets.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_svgwidgets_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_testlib.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_tools_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uitools.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_virtualkeyboard.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_virtualkeyboard_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_wayland_egl_client_hw_integration_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandclient.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandclient_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_waylandglobal_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_widgets.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_wl_shell_integration_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xml.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/modules/qt_lib_xml_private.pri:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qt_functions.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qt_config.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/linux-g++/qmake.conf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/spec_post.prf:
 .qmake.stash:
-../../Qt/6.6.1/gcc_64/mkspecs/features/exclusive_builds.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/toolchain.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/default_pre.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/resolve_config.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/default_post.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/qml_debug.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/warn_on.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/permissions.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/qt.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/resources_functions.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/resources.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/moc.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/unix/opengl.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/unix/thread.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/qmake_use.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/file_copies.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/testcase_targets.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/exceptions.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/yacc.prf:
-../../Qt/6.6.1/gcc_64/mkspecs/features/lex.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/exclusive_builds.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/toolchain.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/default_pre.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/resolve_config.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/default_post.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qml_debug.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/warn_on.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/permissions.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qt.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/resources_functions.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/resources.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/moc.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/unix/opengl.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/unix/thread.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/qmake_use.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/file_copies.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/testcase_targets.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/exceptions.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/yacc.prf:
+/home/test/Qt/6.6.1/gcc_64/mkspecs/features/lex.prf:
 UUU_Tool.pro:
 qml.qrc:
 Resources.qrc:
-../../Qt/6.6.1/gcc_64/lib/libQt6QuickControls2.prl:
-../../Qt/6.6.1/gcc_64/lib/libQt6Quick.prl:
-../../Qt/6.6.1/gcc_64/lib/libQt6OpenGL.prl:
-../../Qt/6.6.1/gcc_64/lib/libQt6Gui.prl:
-../../Qt/6.6.1/gcc_64/lib/libQt6QmlModels.prl:
-../../Qt/6.6.1/gcc_64/lib/libQt6Qml.prl:
-../../Qt/6.6.1/gcc_64/lib/libQt6Network.prl:
-../../Qt/6.6.1/gcc_64/lib/libQt6SerialPort.prl:
-../../Qt/6.6.1/gcc_64/lib/libQt6Core.prl:
+/home/test/Qt/6.6.1/gcc_64/lib/libQt6QuickControls2.prl:
+/home/test/Qt/6.6.1/gcc_64/lib/libQt6Quick.prl:
+/home/test/Qt/6.6.1/gcc_64/lib/libQt6OpenGL.prl:
+/home/test/Qt/6.6.1/gcc_64/lib/libQt6Gui.prl:
+/home/test/Qt/6.6.1/gcc_64/lib/libQt6QmlModels.prl:
+/home/test/Qt/6.6.1/gcc_64/lib/libQt6Qml.prl:
+/home/test/Qt/6.6.1/gcc_64/lib/libQt6Network.prl:
+/home/test/Qt/6.6.1/gcc_64/lib/libQt6SerialPort.prl:
+/home/test/Qt/6.6.1/gcc_64/lib/libQt6Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile UUU_Tool.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 
@@ -634,8 +675,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents qml.qrc Resources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Qt/6.6.1/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents /home/test/Qt/6.6.1/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents SerialCommunication.h commandLauncher.h data.h serialportinfoviewer.h $(DISTDIR)/
+	$(COPY_FILE) --parents SerialCommunication.cpp commandLauncher.cpp data.cpp main.cpp serialportinfoviewer.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -663,23 +705,25 @@ compiler_rcc_make_all: qrc_qml.cpp qrc_Resources.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_qml.cpp qrc_Resources.cpp
 qrc_qml.cpp: qml.qrc \
-		../../Qt/6.6.1/gcc_64/libexec/rcc \
+		/home/test/Qt/6.6.1/gcc_64/libexec/rcc \
 		Aboutpage.qml \
-		Savefile.qml \
 		Flashcmd.qml \
 		Settingspage.qml \
-		Openfile.qml \
 		Helppage.qml \
-		main.qml
+		main.qml \
+		Communication.qml
 	/home/test/Qt/6.6.1/gcc_64/libexec/rcc -name qml --no-zstd qml.qrc -o qrc_qml.cpp
 
 qrc_Resources.cpp: Resources.qrc \
-		../../Qt/6.6.1/gcc_64/libexec/rcc \
+		/home/test/Qt/6.6.1/gcc_64/libexec/rcc \
 		Image/QuestionMark.png \
+		Image/2.png \
+		Image/3.png \
 		Image/minid.png \
 		Image/Downarrow.png \
 		Image/clear.png \
 		Image/maxid.png \
+		Image/1.png \
 		Image/flash1.png \
 		Image/add.png \
 		Image/Close_red.png \
@@ -688,471 +732,1242 @@ qrc_Resources.cpp: Resources.qrc \
 		Image/closeid.png \
 		Image/close3.png \
 		Image/Search.png \
-		Image/close.png
+		Image/close.png \
+		Image/BackButton.png
 	/home/test/Qt/6.6.1/gcc_64/libexec/rcc -name Resources --no-zstd Resources.qrc -o qrc_Resources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
-moc_predefs.h: ../../Qt/6.6.1/gcc_64/mkspecs/features/data/dummy.cpp
-	g++ -pipe -g -Wall -Wextra -fPIC -dM -E -o moc_predefs.h ../../Qt/6.6.1/gcc_64/mkspecs/features/data/dummy.cpp
+moc_predefs.h: /home/test/Qt/6.6.1/gcc_64/mkspecs/features/data/dummy.cpp
+	g++ -pipe -g -Wall -Wextra -fPIC -dM -E -o moc_predefs.h /home/test/Qt/6.6.1/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all:
+compiler_moc_header_make_all: moc_SerialCommunication.cpp moc_commandLauncher.cpp moc_data.cpp moc_serialportinfoviewer.cpp
 compiler_moc_header_clean:
+	-$(DEL_FILE) moc_SerialCommunication.cpp moc_commandLauncher.cpp moc_data.cpp moc_serialportinfoviewer.cpp
+moc_SerialCommunication.cpp: SerialCommunication.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QObject \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnamespace.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconfig.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcore-config.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qassert.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtnoop.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypes.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversion.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsysinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlogging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qflags.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qforeach.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttypetraits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmalloc.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qminmax.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnumeric.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qoverload.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qswap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtresource.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttranslation.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qversiontagging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstring.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qchar.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qrefcount.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qpair.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydataops.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20functional.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20memory.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20type_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringliteral.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qanystringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterator.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcoreevent.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetatype.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdatastream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfloat16.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmath.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterable.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopeguard.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/QSerialPort \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialport.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevice.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qtserialportexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QDebug \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdebug.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtextstream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qshareddata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qset.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhash.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		moc_predefs.h \
+		/home/test/Qt/6.6.1/gcc_64/libexec/moc
+	/home/test/Qt/6.6.1/gcc_64/libexec/moc $(DEFINES) --include '/home/test/Downloads/MFG_FLASH_TOOL 1/MFG_FLASH_TOOL/MFG_FLASH_TOOL/UUU_Tool/moc_predefs.h' -I/home/test/Qt/6.6.1/gcc_64/mkspecs/linux-g++ -I'/home/test/Downloads/MFG_FLASH_TOOL 1/MFG_FLASH_TOOL/MFG_FLASH_TOOL/UUU_Tool' -I/home/test/Qt/6.6.1/gcc_64/include -I/home/test/Qt/6.6.1/gcc_64/include/QtQuickControls2 -I/home/test/Qt/6.6.1/gcc_64/include/QtQuick -I/home/test/Qt/6.6.1/gcc_64/include/QtOpenGL -I/home/test/Qt/6.6.1/gcc_64/include/QtGui -I/home/test/Qt/6.6.1/gcc_64/include/QtQmlModels -I/home/test/Qt/6.6.1/gcc_64/include/QtQml -I/home/test/Qt/6.6.1/gcc_64/include/QtQmlIntegration -I/home/test/Qt/6.6.1/gcc_64/include/QtNetwork -I/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort -I/home/test/Qt/6.6.1/gcc_64/include/QtCore -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/downloads/Tools/mingw1120_64/x86_64-w64-mingw32/include SerialCommunication.h -o moc_SerialCommunication.cpp
+
+moc_commandLauncher.cpp: commandLauncher.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QObject \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnamespace.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconfig.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcore-config.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qassert.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtnoop.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypes.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversion.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsysinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlogging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qflags.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qforeach.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttypetraits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmalloc.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qminmax.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnumeric.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qoverload.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qswap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtresource.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttranslation.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qversiontagging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstring.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qchar.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qrefcount.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qpair.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydataops.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20functional.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20memory.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20type_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringliteral.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qanystringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterator.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcoreevent.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetatype.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdatastream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfloat16.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmath.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterable.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopeguard.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QDir \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdir.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfile.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfiledevice.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevice.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfileinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qshareddata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdatetime.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcalendar.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlocale.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvariant.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdebug.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtextstream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qset.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhash.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q23utility.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtimezone.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QProcess \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qprocess.h \
+		moc_predefs.h \
+		/home/test/Qt/6.6.1/gcc_64/libexec/moc
+	/home/test/Qt/6.6.1/gcc_64/libexec/moc $(DEFINES) --include '/home/test/Downloads/MFG_FLASH_TOOL 1/MFG_FLASH_TOOL/MFG_FLASH_TOOL/UUU_Tool/moc_predefs.h' -I/home/test/Qt/6.6.1/gcc_64/mkspecs/linux-g++ -I'/home/test/Downloads/MFG_FLASH_TOOL 1/MFG_FLASH_TOOL/MFG_FLASH_TOOL/UUU_Tool' -I/home/test/Qt/6.6.1/gcc_64/include -I/home/test/Qt/6.6.1/gcc_64/include/QtQuickControls2 -I/home/test/Qt/6.6.1/gcc_64/include/QtQuick -I/home/test/Qt/6.6.1/gcc_64/include/QtOpenGL -I/home/test/Qt/6.6.1/gcc_64/include/QtGui -I/home/test/Qt/6.6.1/gcc_64/include/QtQmlModels -I/home/test/Qt/6.6.1/gcc_64/include/QtQml -I/home/test/Qt/6.6.1/gcc_64/include/QtQmlIntegration -I/home/test/Qt/6.6.1/gcc_64/include/QtNetwork -I/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort -I/home/test/Qt/6.6.1/gcc_64/include/QtCore -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/downloads/Tools/mingw1120_64/x86_64-w64-mingw32/include commandLauncher.h -o moc_commandLauncher.cpp
+
+moc_data.cpp: data.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QObject \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnamespace.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconfig.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcore-config.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qassert.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtnoop.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypes.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversion.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsysinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlogging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qflags.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qforeach.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttypetraits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmalloc.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qminmax.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnumeric.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qoverload.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qswap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtresource.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttranslation.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qversiontagging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstring.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qchar.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qrefcount.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qpair.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydataops.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20functional.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20memory.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20type_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringliteral.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qanystringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterator.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcoreevent.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetatype.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdatastream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfloat16.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmath.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterable.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopeguard.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QTimer \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtimer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbasictimer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/QSerialPortInfo \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qtserialportexports.h \
+		moc_predefs.h \
+		/home/test/Qt/6.6.1/gcc_64/libexec/moc
+	/home/test/Qt/6.6.1/gcc_64/libexec/moc $(DEFINES) --include '/home/test/Downloads/MFG_FLASH_TOOL 1/MFG_FLASH_TOOL/MFG_FLASH_TOOL/UUU_Tool/moc_predefs.h' -I/home/test/Qt/6.6.1/gcc_64/mkspecs/linux-g++ -I'/home/test/Downloads/MFG_FLASH_TOOL 1/MFG_FLASH_TOOL/MFG_FLASH_TOOL/UUU_Tool' -I/home/test/Qt/6.6.1/gcc_64/include -I/home/test/Qt/6.6.1/gcc_64/include/QtQuickControls2 -I/home/test/Qt/6.6.1/gcc_64/include/QtQuick -I/home/test/Qt/6.6.1/gcc_64/include/QtOpenGL -I/home/test/Qt/6.6.1/gcc_64/include/QtGui -I/home/test/Qt/6.6.1/gcc_64/include/QtQmlModels -I/home/test/Qt/6.6.1/gcc_64/include/QtQml -I/home/test/Qt/6.6.1/gcc_64/include/QtQmlIntegration -I/home/test/Qt/6.6.1/gcc_64/include/QtNetwork -I/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort -I/home/test/Qt/6.6.1/gcc_64/include/QtCore -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/downloads/Tools/mingw1120_64/x86_64-w64-mingw32/include data.h -o moc_data.cpp
+
+moc_serialportinfoviewer.cpp: serialportinfoviewer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QObject \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnamespace.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconfig.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcore-config.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qassert.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtnoop.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypes.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversion.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsysinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlogging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qflags.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qforeach.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttypetraits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmalloc.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qminmax.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnumeric.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qoverload.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qswap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtresource.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttranslation.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qversiontagging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstring.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qchar.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qrefcount.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qpair.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydataops.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20functional.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20memory.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20type_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringliteral.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qanystringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterator.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcoreevent.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetatype.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdatastream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfloat16.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmath.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterable.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopeguard.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/QSerialPort \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialport.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevice.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qtserialportexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QVariantMap \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvariantmap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QMap \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qshareddata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QVariant \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvariant.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdebug.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtextstream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qset.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhash.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q23utility.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QString \
+		moc_predefs.h \
+		/home/test/Qt/6.6.1/gcc_64/libexec/moc
+	/home/test/Qt/6.6.1/gcc_64/libexec/moc $(DEFINES) --include '/home/test/Downloads/MFG_FLASH_TOOL 1/MFG_FLASH_TOOL/MFG_FLASH_TOOL/UUU_Tool/moc_predefs.h' -I/home/test/Qt/6.6.1/gcc_64/mkspecs/linux-g++ -I'/home/test/Downloads/MFG_FLASH_TOOL 1/MFG_FLASH_TOOL/MFG_FLASH_TOOL/UUU_Tool' -I/home/test/Qt/6.6.1/gcc_64/include -I/home/test/Qt/6.6.1/gcc_64/include/QtQuickControls2 -I/home/test/Qt/6.6.1/gcc_64/include/QtQuick -I/home/test/Qt/6.6.1/gcc_64/include/QtOpenGL -I/home/test/Qt/6.6.1/gcc_64/include/QtGui -I/home/test/Qt/6.6.1/gcc_64/include/QtQmlModels -I/home/test/Qt/6.6.1/gcc_64/include/QtQml -I/home/test/Qt/6.6.1/gcc_64/include/QtQmlIntegration -I/home/test/Qt/6.6.1/gcc_64/include/QtNetwork -I/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort -I/home/test/Qt/6.6.1/gcc_64/include/QtCore -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/downloads/Tools/mingw1120_64/x86_64-w64-mingw32/include serialportinfoviewer.h -o moc_serialportinfoviewer.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
-compiler_moc_source_make_all: main.moc
+compiler_moc_source_make_all:
 compiler_moc_source_clean:
-	-$(DEL_FILE) main.moc
-main.moc: main.cpp \
-		../../Qt/6.6.1/gcc_64/include/QtGui/QGuiApplication \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qguiapplication.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qtguiglobal.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qglobal.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtversionchecks.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtconfiginclude.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qconfig.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtcore-config.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtconfigmacros.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtcoreexports.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qsystemdetection.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qprocessordetection.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtdeprecationmarkers.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtpreprocessorsupport.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qassert.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtnoop.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtypes.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtversion.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtclasshelpermacros.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtypeinfo.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qsysinfo.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qlogging.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qflags.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcompare_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qatomic.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qbasicatomic.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qgenericatomic.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qconstructormacros.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qdarwinhelpers.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qexceptionhandling.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qforeach.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qttypetraits.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfunctionpointer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qglobalstatic.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmalloc.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qminmax.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qnumeric.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qoverload.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qswap.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtenvironmentvariables.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtresource.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qttranslation.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qversiontagging.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qtgui-config.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qtguiexports.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcoreapplication.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstring.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qchar.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringview.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qbytearray.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qrefcount.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qnamespace.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtmetamacros.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qarraydata.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qpair.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qarraydatapointer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qarraydataops.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcontainertools_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qxptype_traits.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/q20functional.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/q20memory.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qbytearrayalgorithms.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qbytearrayview.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringfwd.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/q20type_traits.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringliteral.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qlatin1stringview.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qanystringview.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qutf8stringview.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringtokenizer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringbuilder.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcoreevent.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfunctionaltools_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qeventloop.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qobject.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qlist.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qhashfunctions.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qiterator.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qbytearraylist.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringlist.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qalgorithms.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringmatcher.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qscopedpointer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmetatype.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcompare.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qdatastream.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qiodevicebase.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfloat16.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmath.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qiterable.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmetacontainer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcontainerinfo.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtaggedpointer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qscopeguard.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qobject_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qbindingstorage.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qnativeinterface.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qdebug.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtextstream.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringconverter_base.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qshareddata.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmap.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qshareddata_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qset.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qhash.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcoreapplication_platform.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfuture.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfutureinterface.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmutex.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qdeadlinetimer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qelapsedtimer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtsan_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qresultstore.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfuture_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qthreadpool.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qthread.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qrunnable.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qexception.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qpointer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qpromise.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/q23utility.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qinputmethod.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qlocale.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qpoint.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qsize.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmargins.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qguiapplication_platform.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/QQmlApplicationEngine \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlapplicationengine.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlengine.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qurl.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qjsengine.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtimezone.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qdatetime.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcalendar.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qjsvalue.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qtqml-config.h \
-		../../Qt/6.6.1/gcc_64/include/QtNetwork/qtnetworkglobal.h \
-		../../Qt/6.6.1/gcc_64/include/QtNetwork/qtnetwork-config.h \
-		../../Qt/6.6.1/gcc_64/include/QtNetwork/qtnetworkexports.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qtqmlexports.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qjsmanagedvalue.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qjsprimitivevalue.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qjsnumbercoercion.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmldebug.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqml.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlprivate.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlparserstatus.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmllist.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qversionnumber.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmetaobject.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlregistration.h \
-		../../Qt/6.6.1/gcc_64/include/QtQmlIntegration/qqmlintegration.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlerror.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlabstracturlinterceptor.h \
-		../../Qt/6.6.1/gcc_64/include/QtQuickControls2/QQuickStyle \
-		../../Qt/6.6.1/gcc_64/include/QtQuickControls2/qquickstyle.h \
-		../../Qt/6.6.1/gcc_64/include/QtQuickControls2/qtquickcontrols2global.h \
-		../../Qt/6.6.1/gcc_64/include/QtQuickControls2/qtquickcontrols2exports.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/QIcon \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qicon.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qpixmap.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qrect.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qcolor.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qrgb.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qrgba64.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qimage.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qpixelformat.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qtransform.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qpolygon.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qregion.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qline.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/QProcess \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qprocess.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qiodevice.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/QDir \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qdir.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfile.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfiledevice.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfileinfo.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/QQmlContext \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlcontext.h \
-		../../Qt/6.6.1/gcc_64/include/QtSerialPort/QSerialPortInfo \
-		../../Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportinfo.h \
-		../../Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportglobal.h \
-		../../Qt/6.6.1/gcc_64/include/QtSerialPort/qtserialportexports.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/QTextStream \
-		../../Qt/6.6.1/gcc_64/include/QtCore/QStringListModel \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringlistmodel.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qabstractitemmodel.h \
-		devicepop.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/QObject \
-		../../Qt/6.6.1/gcc_64/include/QtQml/QQmlComponent \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlcomponent.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/QTimer \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qbasictimer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/QDebug \
-		moc_predefs.h \
-		../../Qt/6.6.1/gcc_64/libexec/moc
-	/home/test/Qt/6.6.1/gcc_64/libexec/moc $(DEFINES) --include /home/test/StandUp/UUU_Tool/moc_predefs.h -I/home/test/Qt/6.6.1/gcc_64/mkspecs/linux-g++ -I/home/test/StandUp/UUU_Tool -I/home/test/Qt/6.6.1/gcc_64/include -I/home/test/Qt/6.6.1/gcc_64/include/QtQuickControls2 -I/home/test/Qt/6.6.1/gcc_64/include/QtQuick -I/home/test/Qt/6.6.1/gcc_64/include/QtOpenGL -I/home/test/Qt/6.6.1/gcc_64/include/QtGui -I/home/test/Qt/6.6.1/gcc_64/include/QtQmlModels -I/home/test/Qt/6.6.1/gcc_64/include/QtQml -I/home/test/Qt/6.6.1/gcc_64/include/QtQmlIntegration -I/home/test/Qt/6.6.1/gcc_64/include/QtNetwork -I/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort -I/home/test/Qt/6.6.1/gcc_64/include/QtCore -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/downloads/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/downloads/Tools/mingw1120_64/x86_64-w64-mingw32/include main.cpp -o main.moc
-
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_source_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean 
 
 ####### Compile
 
-main.o: main.cpp ../../Qt/6.6.1/gcc_64/include/QtGui/QGuiApplication \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qguiapplication.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qtguiglobal.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qglobal.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtversionchecks.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtconfiginclude.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qconfig.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtcore-config.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtconfigmacros.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtcoreexports.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qsystemdetection.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qprocessordetection.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtdeprecationmarkers.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtpreprocessorsupport.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qassert.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtnoop.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtypes.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtversion.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtclasshelpermacros.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtypeinfo.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qsysinfo.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qlogging.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qflags.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcompare_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qatomic.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qbasicatomic.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qgenericatomic.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qconstructormacros.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qdarwinhelpers.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qexceptionhandling.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qforeach.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qttypetraits.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfunctionpointer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qglobalstatic.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmalloc.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qminmax.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qnumeric.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qoverload.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qswap.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtenvironmentvariables.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtresource.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qttranslation.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qversiontagging.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qtgui-config.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qtguiexports.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcoreapplication.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstring.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qchar.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringview.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qbytearray.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qrefcount.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qnamespace.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtmetamacros.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qarraydata.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qpair.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qarraydatapointer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qarraydataops.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcontainertools_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qxptype_traits.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/q20functional.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/q20memory.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qbytearrayalgorithms.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qbytearrayview.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringfwd.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/q20type_traits.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringliteral.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qlatin1stringview.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qanystringview.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qutf8stringview.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringtokenizer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringbuilder.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcoreevent.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfunctionaltools_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qeventloop.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qobject.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qlist.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qhashfunctions.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qiterator.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qbytearraylist.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringlist.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qalgorithms.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringmatcher.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qscopedpointer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmetatype.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcompare.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qdatastream.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qiodevicebase.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfloat16.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmath.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qiterable.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmetacontainer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcontainerinfo.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtaggedpointer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qscopeguard.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qobject_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qbindingstorage.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qnativeinterface.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qdebug.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtextstream.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringconverter_base.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qshareddata.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmap.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qshareddata_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qset.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qhash.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcoreapplication_platform.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfuture.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfutureinterface.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmutex.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qdeadlinetimer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qelapsedtimer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtsan_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qresultstore.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfuture_impl.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qthreadpool.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qthread.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qrunnable.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qexception.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qpointer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qpromise.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/q23utility.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qinputmethod.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qlocale.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qpoint.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qsize.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmargins.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qguiapplication_platform.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/QQmlApplicationEngine \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlapplicationengine.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlengine.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qurl.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qjsengine.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtimezone.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qdatetime.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qcalendar.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qjsvalue.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qtqml-config.h \
-		../../Qt/6.6.1/gcc_64/include/QtNetwork/qtnetworkglobal.h \
-		../../Qt/6.6.1/gcc_64/include/QtNetwork/qtnetwork-config.h \
-		../../Qt/6.6.1/gcc_64/include/QtNetwork/qtnetworkexports.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qtqmlexports.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qjsmanagedvalue.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qjsprimitivevalue.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qjsnumbercoercion.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmldebug.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqml.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlprivate.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlparserstatus.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmllist.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qversionnumber.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qmetaobject.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlregistration.h \
-		../../Qt/6.6.1/gcc_64/include/QtQmlIntegration/qqmlintegration.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlerror.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlabstracturlinterceptor.h \
-		../../Qt/6.6.1/gcc_64/include/QtQuickControls2/QQuickStyle \
-		../../Qt/6.6.1/gcc_64/include/QtQuickControls2/qquickstyle.h \
-		../../Qt/6.6.1/gcc_64/include/QtQuickControls2/qtquickcontrols2global.h \
-		../../Qt/6.6.1/gcc_64/include/QtQuickControls2/qtquickcontrols2exports.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/QIcon \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qicon.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qpixmap.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qrect.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qcolor.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qrgb.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qrgba64.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qimage.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qpixelformat.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qtransform.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qpolygon.h \
-		../../Qt/6.6.1/gcc_64/include/QtGui/qregion.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qline.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/QProcess \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qprocess.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qiodevice.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/QDir \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qdir.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfile.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfiledevice.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qfileinfo.h \
-		../../Qt/6.6.1/gcc_64/include/QtQml/QQmlContext \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlcontext.h \
-		../../Qt/6.6.1/gcc_64/include/QtSerialPort/QSerialPortInfo \
-		../../Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportinfo.h \
-		../../Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportglobal.h \
-		../../Qt/6.6.1/gcc_64/include/QtSerialPort/qtserialportexports.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/QTextStream \
-		../../Qt/6.6.1/gcc_64/include/QtCore/QStringListModel \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qstringlistmodel.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qabstractitemmodel.h \
-		devicepop.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/QObject \
-		../../Qt/6.6.1/gcc_64/include/QtQml/QQmlComponent \
-		../../Qt/6.6.1/gcc_64/include/QtQml/qqmlcomponent.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/QTimer \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/qbasictimer.h \
-		../../Qt/6.6.1/gcc_64/include/QtCore/QDebug \
-		main.moc
+SerialCommunication.o: SerialCommunication.cpp SerialCommunication.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QObject \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnamespace.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconfig.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcore-config.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qassert.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtnoop.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypes.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversion.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsysinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlogging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qflags.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qforeach.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttypetraits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmalloc.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qminmax.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnumeric.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qoverload.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qswap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtresource.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttranslation.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qversiontagging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstring.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qchar.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qrefcount.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qpair.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydataops.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20functional.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20memory.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20type_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringliteral.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qanystringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterator.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcoreevent.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetatype.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdatastream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfloat16.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmath.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterable.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopeguard.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/QSerialPort \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialport.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevice.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qtserialportexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QDebug \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdebug.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtextstream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qshareddata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qset.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhash.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QProcess \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qprocess.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QFile \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfile.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfiledevice.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QDir \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdir.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfileinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdatetime.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcalendar.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlocale.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvariant.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q23utility.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtimezone.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SerialCommunication.o SerialCommunication.cpp
+
+commandLauncher.o: commandLauncher.cpp commandLauncher.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QObject \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnamespace.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconfig.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcore-config.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qassert.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtnoop.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypes.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversion.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsysinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlogging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qflags.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qforeach.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttypetraits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmalloc.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qminmax.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnumeric.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qoverload.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qswap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtresource.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttranslation.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qversiontagging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstring.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qchar.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qrefcount.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qpair.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydataops.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20functional.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20memory.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20type_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringliteral.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qanystringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterator.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcoreevent.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetatype.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdatastream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfloat16.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmath.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterable.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopeguard.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QDir \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdir.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfile.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfiledevice.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevice.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfileinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qshareddata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdatetime.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcalendar.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlocale.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvariant.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdebug.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtextstream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qset.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhash.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q23utility.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtimezone.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QProcess \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qprocess.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o commandLauncher.o commandLauncher.cpp
+
+data.o: data.cpp data.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QObject \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnamespace.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconfig.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcore-config.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qassert.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtnoop.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypes.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversion.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsysinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlogging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qflags.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qforeach.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttypetraits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmalloc.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qminmax.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnumeric.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qoverload.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qswap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtresource.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttranslation.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qversiontagging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstring.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qchar.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qrefcount.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qpair.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydataops.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20functional.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20memory.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20type_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringliteral.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qanystringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterator.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcoreevent.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetatype.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdatastream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfloat16.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmath.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterable.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopeguard.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QTimer \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtimer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbasictimer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/QSerialPortInfo \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qtserialportexports.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o data.o data.cpp
+
+main.o: main.cpp /home/test/Qt/6.6.1/gcc_64/include/QtGui/QGuiApplication \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qguiapplication.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconfig.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcore-config.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qassert.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtnoop.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypes.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversion.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsysinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlogging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qflags.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qforeach.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttypetraits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmalloc.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qminmax.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnumeric.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qoverload.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qswap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtresource.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttranslation.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qversiontagging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qtgui-config.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qtguiexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstring.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qchar.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qrefcount.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnamespace.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qpair.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydataops.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20functional.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20memory.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20type_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringliteral.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qanystringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcoreevent.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qeventloop.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterator.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetatype.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdatastream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfloat16.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmath.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterable.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopeguard.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnativeinterface.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdebug.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtextstream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qshareddata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qset.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhash.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcoreapplication_platform.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfuture.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfutureinterface.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmutex.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qelapsedtimer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtsan_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qresultstore.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfuture_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qthreadpool.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qthread.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qrunnable.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qexception.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qpromise.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvariant.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q23utility.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qinputmethod.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlocale.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qpoint.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsize.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmargins.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qguiapplication_platform.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/QQmlApplicationEngine \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qqmlapplicationengine.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qqmlengine.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qurl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qjsengine.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtimezone.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdatetime.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcalendar.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qjsvalue.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qtqml-config.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtNetwork/qtnetworkexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qtqmlexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qjsmanagedvalue.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qjsprimitivevalue.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qjsnumbercoercion.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qqmldebug.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qqml.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qqmlprivate.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qqmlparserstatus.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qqmllist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qversionnumber.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetaobject.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qqmlregistration.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQmlIntegration/qqmlintegration.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qqmlerror.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qqmlabstracturlinterceptor.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQuickControls2/QQuickStyle \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQuickControls2/qquickstyle.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQuickControls2/qtquickcontrols2global.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQuickControls2/qtquickcontrols2exports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/QIcon \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qicon.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qpixmap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qrect.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qcolor.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qrgb.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qrgba64.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qimage.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qpixelformat.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qtransform.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qpolygon.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtGui/qregion.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qline.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/QQmlContext \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qqmlcontext.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/QQmlComponent \
+		/home/test/Qt/6.6.1/gcc_64/include/QtQml/qqmlcomponent.h \
+		serialportinfoviewer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QObject \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/QSerialPort \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialport.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevice.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qtserialportexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QVariantMap \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvariantmap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QMap \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QVariant \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QString \
+		commandLauncher.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QDir \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdir.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfile.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfiledevice.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfileinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QProcess \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qprocess.h \
+		data.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QTimer \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtimer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbasictimer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/QSerialPortInfo \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportinfo.h \
+		SerialCommunication.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
+
+serialportinfoviewer.o: serialportinfoviewer.cpp serialportinfoviewer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QObject \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnamespace.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconfig.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcore-config.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qassert.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtnoop.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypes.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtversion.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsysinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlogging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qflags.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qforeach.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttypetraits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmalloc.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qminmax.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qnumeric.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qoverload.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qswap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtresource.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qttranslation.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qversiontagging.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstring.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qchar.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qrefcount.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qpair.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qarraydataops.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20functional.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20memory.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringfwd.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q20type_traits.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringliteral.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qanystringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterator.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringlist.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qalgorithms.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcoreevent.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetatype.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcompare.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdatastream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfloat16.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmath.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiterable.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qscopeguard.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qobject_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/QSerialPort \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialport.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qiodevice.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportglobal.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qtserialportexports.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QVariantMap \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvariantmap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QMap \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qmap.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qshareddata.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QVariant \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvariant.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qdebug.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qtextstream.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qset.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qhash.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/q23utility.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QString \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/QSerialPortInfo \
+		/home/test/Qt/6.6.1/gcc_64/include/QtSerialPort/qserialportinfo.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QProcess \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qprocess.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/QFile \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfile.h \
+		/home/test/Qt/6.6.1/gcc_64/include/QtCore/qfiledevice.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o serialportinfoviewer.o serialportinfoviewer.cpp
 
 qrc_qml.o: qrc_qml.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_qml.o qrc_qml.cpp
 
 qrc_Resources.o: qrc_Resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_Resources.o qrc_Resources.cpp
+
+moc_SerialCommunication.o: moc_SerialCommunication.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_SerialCommunication.o moc_SerialCommunication.cpp
+
+moc_commandLauncher.o: moc_commandLauncher.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_commandLauncher.o moc_commandLauncher.cpp
+
+moc_data.o: moc_data.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_data.o moc_data.cpp
+
+moc_serialportinfoviewer.o: moc_serialportinfoviewer.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_serialportinfoviewer.o moc_serialportinfoviewer.cpp
 
 ####### Install
 

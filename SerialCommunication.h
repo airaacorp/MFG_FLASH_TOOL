@@ -1,9 +1,9 @@
-// SerialCommunication.h
 #ifndef SERIALCOMMUNICATION_H
 #define SERIALCOMMUNICATION_H
 
 #include <QObject>
 #include <QSerialPort>
+#include <QDebug>
 
 class SerialCommunication : public QObject
 {
@@ -14,12 +14,19 @@ public:
     ~SerialCommunication();
 
     Q_INVOKABLE void connectSerial(const QString &portName, qint32 baudRate);
-    Q_INVOKABLE void sendData(const QString &data);
-    Q_INVOKABLE QString receiveData();
+    Q_INVOKABLE bool isPortConnected();
     Q_INVOKABLE void closeSerial();
+    Q_INVOKABLE void sendFile(const QString &filePath);
+    Q_INVOKABLE void sendData(const QString &data);
+signals:
+    void fileTransferCompleted();
+    void fileTransferFailed(const QString &error);
 
 private:
-    QSerialPort serialPort;
+         // QSerialPort serialPort;
+    QSerialPort m_serialPort;
+
+    void handleError(const QString &error);
 };
 
 #endif // SERIALCOMMUNICATION_H
