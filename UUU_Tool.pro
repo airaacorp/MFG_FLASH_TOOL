@@ -1,7 +1,4 @@
-QT += quick quickcontrols2
-QT += core
-QT += gui
-QT += serialport
+QT += quick core gui serialport quickcontrols2
 CONFIG += console
 
 # CONFIG += c++11
