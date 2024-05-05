@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
     SerialCommunication serialComm;
     engine.rootContext()->setContextProperty("serialComm", &serialComm);
 
-    const QUrl url(QStringLiteral("qrc:/main.qml"));
+    const QUrl url(QStringLiteral("qrc:/UUU_Tool/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
         &app, [url](QObject *obj, const QUrl &objUrl) {
             if (!obj && url == objUrl)
