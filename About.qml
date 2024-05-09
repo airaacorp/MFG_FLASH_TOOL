@@ -151,7 +151,6 @@ Item {
                 radius: 60
                 color: "#777f8c"
             }
-
             anchors.bottom: parent.bottom
             anchors.bottomMargin: Math.round(0.1 * parent.height)
             anchors.right: parent.right

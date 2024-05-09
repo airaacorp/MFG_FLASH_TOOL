@@ -16,7 +16,7 @@ list(APPEND project_Qml_files
 	main.qml
         Settingspage.qml
         Flashcmd.qml
-        Communication.qml
+        Communication/Communication.qml
         Productinfo.qml
         About.qml
 )
