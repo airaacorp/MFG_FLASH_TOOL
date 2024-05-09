@@ -203,7 +203,6 @@ Rectangle {
                     width: Math.round(200 * scalefactor)
                     background: Rectangle{
                         radius: 60
-                        color: "#777f8c"
                     }
                     onClicked: {
                         protocolComboId.currentIndex=0;

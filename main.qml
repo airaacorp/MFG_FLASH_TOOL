@@ -326,7 +326,7 @@ ApplicationWindow {
                         // tb5.about_selected = false;
                         // tb6.exit_selected = false;
                         // if (i == 0) {
-                        mstackid.push("qrc:/UUU_Tool/Communication.qml")
+                        mstackid.push("qrc:/UUU_Tool/Communication/Communication.qml")
                         // }
                         // else {
                         //     mstackid.pushExit
