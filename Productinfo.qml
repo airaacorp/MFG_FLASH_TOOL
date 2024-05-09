@@ -14,11 +14,12 @@ Item {
     visible: true
     implicitWidth: pdfview.visible ? pdfview.width: parent.width
     implicitHeight: pdfview.visible ? pdfview.height: parent.height
+    signal productInfoClosed()
 
     Rectangle {
         id:homePage
         anchors.fill: parent
-        border.color: "green"
+        border.color: "black"
         border.width: 1
 
         // Rectangle {
@@ -124,30 +125,43 @@ Item {
 
     Rectangle {
         id: pdfview
-        visible: true;
+        visible: true
         width: parent.width
         height: parent.height
-        anchors.centerIn: parent
-        anchors.topMargin: 50 // Adjust the top margin as needed
-
+        border.color: "black"
+        border.width: 1
+        //anchors.centerIn: parent
+        //anchors.topMargin: 50 // Adjust the top margin as needed
+        Text {
+            id: product_name
+            text: qsTr("UUU (Universal Update Utility)")
+            font.pointSize: Screen.height * 0.017
+            font.bold: true
+            x:parent.width * 0.26
+            y:parent.height * 0.03
+        }
         Flickable {
-            anchors.fill: parent
+            //anchors.fill: parent
+            width: parent.width
+            height:parent.height * 0.90
+            anchors.top: product_name.bottom
+            anchors.topMargin: 20
             contentHeight: columnRects.height
             clip: true
             flickableDirection: Flickable.VerticalFlick
 
             Column {
                 id: columnRects
-                width: parent.width
-                spacing: 20
+                width: parent.width - 10
+                spacing: 10
                 anchors.horizontalCenter: parent.horizontalCenter
 
-                Image {
-                    id: i1
-                    source: "qrc:/UUU_Tool/Image/1.png"
-                    width: columnRects.width - 20
-                    horizontalAlignment: Qt.AlignHCenter
-                }
+                // Image {
+                //     id: i1
+                //     source: "qrc:/UUU_Tool/Image/1.png"
+                //     width: columnRects.width - 20
+                //     horizontalAlignment: Qt.AlignHCenter
+                // }
                 Image {
                     id: i2
                     source: "qrc:/UUU_Tool/Image/2.png"
@@ -188,6 +202,7 @@ Item {
                 onClicked: {
                     pdfview.visible = false
                     homePage.visible = false
+                    item.productInfoClosed()
                 }
             }
 

@@ -1,0 +1,8 @@
+module AiraaButtonPlugin
+linktarget AiraaButtonPlugin
+optional plugin AiraaButtonPlugin
+classname AiraaButtonPluginPlugin
+typeinfo AiraaButtonPlugin.qmltypes
+prefer :/AiraaButtonPlugin/
+AiraaButton 1.0 AiraaButton.qml
+

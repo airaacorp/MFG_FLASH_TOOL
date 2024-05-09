@@ -8,10 +8,10 @@ Item {
         else if(Screen.height < 1080) return 0.8
         else return 1
     }
-
     height: parent.height
     width: parent.width
     visible: true
+    signal aboutClosed()
 
     Rectangle {
         id:homePage
@@ -160,6 +160,7 @@ Item {
                 console.log("--Button",closedid.height)
                 console.log("--BUtton",closedid.width)
                 homePage.visible = false
+                windowid.aboutClosed()
             }
         }
     }

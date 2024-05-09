@@ -15,6 +15,7 @@ Item {
     height: parent.height
     width: parent.width
     visible: true
+    signal flashCommandClosed()
 
     Rectangle {
         id: rrr1
@@ -70,10 +71,11 @@ Item {
                         onEntered: closerect.color="#777f8c"
                         onExited: closerect.color="#a9a9a9"
                         onClicked: {
-                            homeid.visible = false
+                            flashcmdid.visible = false
                             closerect.visible=false
-                            whiterect.visible=false
-                            butoonsrow.visible=false
+                            //whiterect.visible=false
+                            //butoonsrow.visible=false
+                            flashcmdid.flashCommandClosed()
                         }
                     }
 
@@ -120,21 +122,21 @@ Item {
                     model: ["Select","Windows", "Linux"]
                     onCurrentIndexChanged: {
                         if (currentIndex === 2) {
-                            butoonsrow.visible=true
-                            whiterect.visible=true
+                            //butoonsrow.visible=true
+                            //whiterect.visible=true
                             linuxTerminal.visible = true
                             windowsPromt.visible = false
                         } else if (currentIndex === 1) {
-                            butoonsrow.visible=true
-                            whiterect.visible=true
+                            //butoonsrow.visible=true
+                            //whiterect.visible=true
                             windowsPromt.visible = true
                             linuxTerminal.visible = false
                         }else{
                             if(currentIndex === 0){
                                 linuxTerminal.visible=false
                                 windowsPromt.visible=false
-                                butoonsrow.visible=false
-                                whiterect.visible=false
+                                //butoonsrow.visible=false
+                                //whiterect.visible=false
                             }
                         }
                     }
@@ -186,7 +188,7 @@ Item {
 
                     Rectangle{
                         id:cmdrectangle
-                        height:300
+                        height:flashcmdid.height-200
                         // height: flashcmdid.height-rowid.x-rowid.height
                         width: flashcmdid.width*0.98
                         ScrollView {
@@ -284,7 +286,8 @@ Item {
                     // }
                     Rectangle{
                         id:cmdWinrectangle
-                        height:300                        // height: flashcmdid.height-rowid.x-rowid.height
+                        height:flashcmdid.height-200
+                        // height: flashcmdid.height-rowid.x-rowid.height
                         width: flashcmdid.width*0.98
                         ScrollView {
                             // Adjust the position dynamically, here 0.1 indicates 10% from the top
@@ -318,97 +321,97 @@ Item {
         }
     }
 
-    Rectangle {
-        visible: false;
+    // Rectangle {
+    //     visible: false;
 
-        id: whiterect
-        y: 500
-        x: 7
-        height: 200
-        width: flashcmdid.width * 0.940
-        color: "lightgrey"
-        // border.width: 3  // Increase the border width for better visibility
-        // border.color: "red"
-        border {
-              width: 10  // Define border width
-              color: "black"  // Define border color
-          }
+    //     id: whiterect
+    //     y: 500
+    //     x: 7
+    //     height: 200
+    //     width: flashcmdid.width * 0.940
+    //     color: "lightgrey"
+    //     // border.width: 3  // Increase the border width for better visibility
+    //     // border.color: "red"
+    //     border {
+    //           width: 10  // Define border width
+    //           color: "black"  // Define border color
+    //       }
 
-          // Optional: Add a radius for rounded corners
-          radius: 1
+    //       // Optional: Add a radius for rounded corners
+    //       radius: 1
 
-        ScrollView {
-            anchors.fill: parent
-            visible: true
-            TextArea {
-                width: parent.width
-                height: parent.height
-                readOnly: true
-                wrapMode: TextEdit.WordWrap
-                anchors.fill: parent
+    //     ScrollView {
+    //         anchors.fill: parent
+    //         visible: true
+    //         TextArea {
+    //             width: parent.width
+    //             height: parent.height
+    //             readOnly: true
+    //             wrapMode: TextEdit.WordWrap
+    //             anchors.fill: parent
 
-                textFormat: TextEdit.PlainText
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    //             textFormat: TextEdit.PlainText
+    //             text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 
-                background: Rectangle {
-                    color: "white"
-                }
-                color: "black"
-            }
-        }
-    }
-    Row {
-        id:butoonsrow
-visible: false;
-        anchors.bottomMargin: 10
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        spacing: 17  // Adjust the spacing between the buttons
+    //             background: Rectangle {
+    //                 color: "white"
+    //             }
+    //             color: "black"
+    //         }
+    //     }
+    // }
+    // Row {
+    //     id:butoonsrow
+    //     visible: false;
+    //     anchors.bottomMargin: 10
+    //     anchors.bottom: parent.bottom
+    //     anchors.horizontalCenter: parent.horizontalCenter
+    //     spacing: 17  // Adjust the spacing between the buttons
 
-        Button {
-            Text {
-                id:txt
-                text:"Download logs"
-                font.family: "Helvetica"
-                font.pointSize: Screen.height * 0.015
-                font.bold: true
-                color: "white"
-                anchors.centerIn: parent
-            }
-            height: Math.round(60 * scalefactor)
-            width: Math.round(200 * scalefactor)
-            background: Rectangle{
-                radius: 60
-                color: "#777f8c"
-            }
-            onClicked: {
-                // Add your action for the first button here
-            }
-        }
+    //     Button {
+    //         Text {
+    //             id:txt
+    //             text:"Download logs"
+    //             font.family: "Helvetica"
+    //             font.pointSize: Screen.height * 0.015
+    //             font.bold: true
+    //             color: "white"
+    //             anchors.centerIn: parent
+    //         }
+    //         height: Math.round(60 * scalefactor)
+    //         width: Math.round(200 * scalefactor)
+    //         background: Rectangle{
+    //             radius: 60
+    //             color: "#777f8c"
+    //         }
+    //         onClicked: {
+    //             // Add your action for the first button here
+    //         }
+    //     }
 
-        Button {
+    //     Button {
 
-            Text {
-                id:txt2
-                text:"Clear logs"
-                font.family: "Helvetica"
-                font.pointSize: Screen.height * 0.015
-                font.bold: true
-                color: "white"
-                anchors.centerIn: parent
-            }
-            height: Math.round(60 * scalefactor)
-            width: Math.round(200 * scalefactor)
-            background: Rectangle{
-                radius: 60
-                color: "#777f8c"
-            }
+    //         Text {
+    //             id:txt2
+    //             text:"Clear logs"
+    //             font.family: "Helvetica"
+    //             font.pointSize: Screen.height * 0.015
+    //             font.bold: true
+    //             color: "white"
+    //             anchors.centerIn: parent
+    //         }
+    //         height: Math.round(60 * scalefactor)
+    //         width: Math.round(200 * scalefactor)
+    //         background: Rectangle{
+    //             radius: 60
+    //             color: "#777f8c"
+    //         }
 
-            onClicked: {
-                // Add your action for the second button here
-            }
-        }
-    }
+    //         onClicked: {
+    //             // Add your action for the second button here
+    //         }
+    //     }
+    // }
 
 }
 

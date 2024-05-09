@@ -15,7 +15,7 @@ ApplicationWindow {
         else if(Screen.height < 1080) return 0.8
         else return 1
     }
-
+    property bool tabEnablePriority:true
     height:screen.height
     width: screen.width
 
@@ -304,33 +304,37 @@ ApplicationWindow {
                     }
                     onClicked: {
                         console.log("width",tabBarid.width)
-                        rectid1.color = "#777f8c"
-                        lblid2.color = "white"
-                        // lblid1.color = "black"
-                        // rectid0.color = "#d9d9d9"
-                        lblid3.color = "black"
-                        rectid2.color = "#d9d9d9"
-                        lblid4.color = "black"
-                        rectid3.color = "#d9d9d9"
-                        // lblid5.color = "black"
-                        // rectid4.color = "#d9d9d9"
-                        // lblid6.color = "black"
-                        // rectid5.color = "#d9d9d9"
-                        // cmnchan.color = "#d9d9d9"
-                        // cmnch.color = "black"
-                        set_selected = true;
-                        tb3.flash_selected = false;
-                        // tb9.commu_selected = false;
-                        tb4.help_selected = false;
-                        popupRect9.visible = false
-                        // tb5.about_selected = false;
-                        // tb6.exit_selected = false;
-                        // if (i == 0) {
-                        mstackid.push("qrc:/UUU_Tool/Communication.qml")
-                        // }
-                        // else {
-                        //     mstackid.pushExit
-                        // }
+                        if(windowid.tabEnablePriority){
+                            rectid1.color = "#777f8c"
+                            lblid2.color = "white"
+                            // lblid1.color = "black"
+                            // rectid0.color = "#d9d9d9"
+                            lblid3.color = "black"
+                            rectid2.color = "#d9d9d9"
+                            lblid4.color = "black"
+                            rectid3.color = "#d9d9d9"
+                            // lblid5.color = "black"
+                            // rectid4.color = "#d9d9d9"
+                            // lblid6.color = "black"
+                            // rectid5.color = "#d9d9d9"
+                            // cmnchan.color = "#d9d9d9"
+                            // cmnch.color = "black"
+                            set_selected = true;
+                            tb3.flash_selected = false;
+                            // tb9.commu_selected = false;
+                            tb4.help_selected = false;
+                            popupRect9.visible = false
+                            // tb5.about_selected = false;
+                            // tb6.exit_selected = false;
+                            // if (i == 0) {
+                            //mstackid.push("qrc:/UUU_Tool/Communication.qml")
+                            mstackid.push(communicationPage)
+                            windowid.tabEnablePriority = false
+                            // }
+                            // else {
+                            //     mstackid.pushExit
+                            // }
+                        }
                     }
 
                 }
@@ -369,28 +373,32 @@ ApplicationWindow {
                         }
                     }
                     onClicked: {
-                        rectid2.color = "#777f8c"
-                        lblid3.color = "white"
-                        lblid2.color = "black"
-                        rectid1.color = "#d9d9d9"
-                        // lblid1.color = "black"
-                        // rectid0.color = "#d9d9d9"
-                        lblid4.color = "black"
-                        rectid3.color = "#d9d9d9"
-                        // lblid5.color = "black"
-                        // rectid4.color = "#d9d9d9"
-                        // lblid6.color = "black"
-                        // rectid5.color = "#d9d9d9"
-                        // cmnchan.color = "#d9d9d9"
-                        // cmnch.color = "black"
-                        flash_selected = true;
-                        tb2.set_selected = false;
-                        // tb9.commu_selected = false;
-                        tb4.help_selected = false;
-                        // tb5.about_selected = false;
-                        // tb6.exit_selected = false;
-                        popupRect9.visible = false
-                        mstackid.push("qrc:/UUU_Tool/Flashcmd.qml")
+                        if(windowid.tabEnablePriority){
+                            rectid2.color = "#777f8c"
+                            lblid3.color = "white"
+                            lblid2.color = "black"
+                            rectid1.color = "#d9d9d9"
+                            // lblid1.color = "black"
+                            // rectid0.color = "#d9d9d9"
+                            lblid4.color = "black"
+                            rectid3.color = "#d9d9d9"
+                            // lblid5.color = "black"
+                            // rectid4.color = "#d9d9d9"
+                            // lblid6.color = "black"
+                            // rectid5.color = "#d9d9d9"
+                            // cmnchan.color = "#d9d9d9"
+                            // cmnch.color = "black"
+                            flash_selected = true;
+                            tb2.set_selected = false;
+                            // tb9.commu_selected = false;
+                            tb4.help_selected = false;
+                            // tb5.about_selected = false;
+                            // tb6.exit_selected = false;
+                            popupRect9.visible = false
+                            //mstackid.push("qrc:/UUU_Tool/Flashcmd.qml")
+                            mstackid.push(flashcommandPage)
+                            windowid.tabEnablePriority = false
+                        }
                     }
                 }
 
@@ -486,30 +494,32 @@ ApplicationWindow {
                         }
                     }
                     onClicked: {
-                        rectid3.color = "#777f8c"
-                        lblid4.color = "white"
+                        if(windowid.tabEnablePriority){
+                            rectid3.color = "#777f8c"
+                            lblid4.color = "white"
 
-                        lblid2.color = "black"
-                        rectid1.color = "#d9d9d9"
-                        lblid3.color = "black"
-                        rectid2.color = "#d9d9d9"
-                        // lblid1.color = "black"
-                        // rectid0.color = "#d9d9d9"
-                        // lblid5.color = "black"
-                        // rectid4.color = "#d9d9d9"
-                        // lblid6.color = "black"
-                        // rectid5.color = "#d9d9d9"
-                        // cmnchan.color = "#d9d9d9"
-                        // cmnch.color = "black"
-                        help_selected = true;
-                        tb2.set_selected = false;
-                        tb3.flash_selected = false;
-                        // tb9.commu_selected = false;
-                        // tb5.about_selected = false;
-                        // tb6.exit_selected = false;
-                        popupRect9.visible = true
-                        mstackid.push("qrc:/UUU_Tool/Helppage.qml")
-
+                            lblid2.color = "black"
+                            rectid1.color = "#d9d9d9"
+                            lblid3.color = "black"
+                            rectid2.color = "#d9d9d9"
+                            // lblid1.color = "black"
+                            // rectid0.color = "#d9d9d9"
+                            // lblid5.color = "black"
+                            // rectid4.color = "#d9d9d9"
+                            // lblid6.color = "black"
+                            // rectid5.color = "#d9d9d9"
+                            // cmnchan.color = "#d9d9d9"
+                            // cmnch.color = "black"
+                            help_selected = true;
+                            tb2.set_selected = false;
+                            tb3.flash_selected = false;
+                            // tb9.commu_selected = false;
+                            // tb5.about_selected = false;
+                            // tb6.exit_selected = false;
+                            popupRect9.visible = true
+                            //windowid.tabEnablePriority = false
+                            //mstackid.push("qrc:/UUU_Tool/Helppage.qml")
+                        }
 
                     }
 
@@ -532,7 +542,9 @@ ApplicationWindow {
                                 width: 250
                                 text: "Product Info"
                                 onClicked: {
-                                    mstackid.push("qrc:/UUU_Tool/Productinfo.qml")
+                                    //mstackid.push("qrc:/UUU_Tool/Productinfo.qml")
+                                    mstackid.push(productinfoPage)
+                                    windowid.tabEnablePriority = false
 
                                 }
                             }
@@ -543,7 +555,9 @@ ApplicationWindow {
                                 width: 250
                                 text: "About"
                                 onClicked: {
-                                    mstackid.push("qrc:/UUU_Tool/About.qml")
+                                    //mstackid.push("qrc:/UUU_Tool/About.qml")
+                                    mstackid.push(aboutPage)
+                                    windowid.tabEnablePriority = false
                                 }
                             }
                         }
@@ -698,6 +712,38 @@ ApplicationWindow {
                 //     }
                 // }
 
+            }
+        }
+    }
+    Component {
+        id: communicationPage
+        Communication {
+            onCommunicationChannelClosed: {
+                windowid.tabEnablePriority = true
+            }
+        }
+    }
+    Component {
+        id: flashcommandPage
+        Flashcmd {
+            onFlashCommandClosed: {
+                windowid.tabEnablePriority = true
+            }
+        }
+    }
+    Component {
+        id: productinfoPage
+        Productinfo {
+            onProductInfoClosed: {
+                windowid.tabEnablePriority = true
+            }
+        }
+    }
+    Component {
+        id: aboutPage
+        About {
+            onAboutClosed: {
+                windowid.tabEnablePriority = true
             }
         }
     }
