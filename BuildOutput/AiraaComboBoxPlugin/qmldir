@@ -1,0 +1,8 @@
+module AiraaComboBoxPlugin
+linktarget AiraaComboBoxPlugin
+optional plugin AiraaComboBoxPlugin
+classname AiraaComboBoxPluginPlugin
+typeinfo AiraaComboBoxPlugin.qmltypes
+prefer :/AiraaComboBoxPlugin/
+AiraaComboBox 1.0 AiraaComboBox.qml
+

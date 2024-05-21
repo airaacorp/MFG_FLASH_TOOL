@@ -60,6 +60,12 @@ qt_add_qml_module(app_UUU_Tool
     QML_FILES ${project_Qml_files}
     SOURCES ${project_Source_files}
     RESOURCES ${project_Resources_files}
+    RESOURCES Image/AcL2.png
+    RESOURCES Image/closeIcon.png
+    RESOURCES Image/maximize.png
+    RESOURCES Image/maximize.png
+    RESOURCES
+    RESOURCES Image/minimize.png
 )
 
 set_target_properties(app_UUU_Tool PROPERTIES

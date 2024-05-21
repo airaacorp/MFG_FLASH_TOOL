@@ -3,68 +3,91 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Dialogs
 import Obj 1.0
+import QtQuick.Layouts
+
 
 ApplicationWindow {
     id: windowid
     title: " UUU Tool"
     visible: true
-    color: "#F8F8FF"
-
+    color:"#2B2D2E"
     property real scalefactor : {
         if(Screen.width > 1920) return 1.2
         else if(Screen.height < 1080) return 0.8
         else return 1
     }
-
+    property bool tabEnablePriority:true
+    property int tabIndex: 3
     height:screen.height
     width: screen.width
 
     flags: Qt.Window | Qt.FramelessWindowHint
 
     Rectangle {
-        id: _rect
-        // color: "red"
+        id: main_rect
         anchors.fill: parent
-        color:"#F8F8FF"
-        // gradient: Gradient {
-        //     GradientStop { position: 0.0; color: "#F8F8FF" }
-        //     GradientStop { position: 1.0; color: "white" }
-        // }
-
-        Image {
-            id: _image
-            source: "qrc:/UUU_Tool/Image/Airaa_Logo.png"
-            x: (_rect.width / 2) - width / 2
-            height: Screen.height * 0.1 *scalefactor
-            width: Screen.width * 0.2 * scalefactor
-            anchors.bottom: _text.top
-        }
-
-        Text {
-            id: _text
-            text: qsTr("MFG FLASH TOOL")
+        color:"#2B2D2E"
+        radius: 16
+        Rectangle{
+            id: logorect
+            width: 800
+            height: 400
+            radius: 12
+            color: "#373B3D"
             anchors.centerIn: parent
-            font.bold: true
-            font.family: "Helvetica"
-            font.pointSize: Screen.height * 0.04 * scalefactor//50
-            color: "black"
-        }
+            ColumnLayout{
+                id:logos
+                anchors.fill: parent
+                spacing: 5
+                Rectangle{
+                    id: img
+                    width: 800
+                    height: 200
+                    color: "#373B3D"
+                    radius: 12
 
-        // Timer {
-        //     interval: 5000 // 5 seconds (in milliseconds)
-        //     running: true
-        //     repeat: false
-        //     onTriggered: {
-        //         _rect.visible = false; // Hide the Rectangle
-        //         mainwindid.visible = true;
-        //     }
-        // }
+                    Image {
+                        id: main_airaa_logo_img
+                        source: "qrc:/UUU_Tool/Image/AcL2.png"
+                        x: (main_rect.width / 2) - width / 2
+                        height: 140
+                        width: 400
+                        anchors{
 
-        MouseArea {
-            anchors.fill:parent
-            onClicked: {
-                mainwindid.visible = true
-                _rect.visible = false
+                            top: parent.top
+                            topMargin: 65
+                            right: parent.right
+                            rightMargin: 210
+                        }
+                    }
+                }
+
+                Rectangle{
+                    id:txt
+                    width: 800
+                    height: 180
+                    color:"#373B3D"
+                    radius: 12
+                    Text {
+                        id: main_flashtool_txt
+                        text: qsTr("PRIME MFG TOOL")
+                        anchors.centerIn: parent
+                        font{
+                            bold: true
+                            family: "C059"
+                            pointSize: Screen.height * 0.04 * scalefactor//50
+                        }
+                        color:"#878C92"//"#BABDC0"
+                    }
+                }
+            }
+
+            MouseArea {
+                anchors.fill:parent
+                onClicked: {
+                    mainwindid.visible = true
+                    main_rect.visible = false
+                }
             }
         }
     }
@@ -119,41 +142,48 @@ ApplicationWindow {
             id: titlebarid
             width: parent.width
             height: Screen.height * 0.08 * scalefactor
-            color: "#F0F0F0"
+            color: "#373B3D"
             Image {
                 id: logoid
                 source: "qrc:/UUU_Tool/Image/flash1.png"
-                width: Screen.width * 0.015
+                width: Screen.width * 0.012
                 height: Screen.height * 0.02
                 anchors.left: parent.left
                 anchors.leftMargin: Screen.width * 0.008
+                anchors.top: parent.top
+                anchors.topMargin: 10
             }
             Label {
                 id: titleid
-                text: "UUU Flash Tool"
-                font.family: "Helvetica"
+                text: "ACL MFG TOOL"
+                font.family: "C059"
+                color: "#F9F9FA"
                 font.pointSize: Screen.height * 0.01
                 anchors.left: logoid.right
                 anchors.leftMargin: Screen.width * 0.005
+                anchors.top: parent.top
+                anchors.topMargin: 10
             }
             Row {
                 spacing: Screen.width * 0.01 * scalefactor
                 anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.topMargin: 7
 
                 Button {
                     id: miniid
                     height: Math.round(30*scalefactor)
                     width: Math.round(25*scalefactor)
                     background: Rectangle {
-                        color: "#F0F0F0"
+                        color: "#696969"
+                        radius: 5
                     }
                     Image {
-                        source: "qrc:/UUU_Tool/Image/minid.png"
+                        source: "qrc:/UUU_Tool/Image/minimize.png"
                         height: Math.round(30*scalefactor)
-                        width: Math.round(25*scalefactor)
+                        width: Math.round(20*scalefactor)
                         anchors.centerIn: miniid
                     }
-
                     onClicked: {
                         console.log("minimized")
                         console.log("-----heigth---",titlebarid.height)
@@ -164,15 +194,15 @@ ApplicationWindow {
                 }
                 Button {
                     id: maxid
-                    width: 25
-                    height: 30
+                    height: Math.round(30*scalefactor)
+                    width: Math.round(25*scalefactor)
                     background: Rectangle {
-                        color: "#F0F0F0"
+                        color: "#696969"
+                        radius: 5
                     }
-
                     Image {
-                        source: "qrc:/UUU_Tool/Image/maxid.png"
-                        height: Math.round(30*scalefactor)
+                        source: "qrc:/UUU_Tool/Image/maximize.png"
+                        height: Math.round(28*scalefactor)
                         width: Math.round(25*scalefactor)
                         anchors.centerIn: maxid
                     }
@@ -193,16 +223,15 @@ ApplicationWindow {
                     height: Math.round(30*scalefactor)
                     width: Math.round(25*scalefactor)
                     background: Rectangle {
-                        color: "#F0F0F0"
+                        color: "#696969"
+                        radius: 5
                     }
-
                     Image {
-                        source: "qrc:/UUU_Tool/Image/closeid.png"
-                        height: Math.round(20*scalefactor)
-                        width: Math.round(20*scalefactor)
+                        source: "qrc:/UUU_Tool/Image/closeIcon.png"
+                        height: Math.round(25*scalefactor)
+                        width: Math.round(25*scalefactor)
                         anchors.centerIn: closeid
                     }
-
                     onClicked: {
                         confirmationDialogid.open()
                     }
@@ -217,7 +246,7 @@ ApplicationWindow {
                         modal: true
                         title: "Closing Application"
                         font.pointSize: Screen.height * 0.010
-                        font.family: "Helvetica"
+                        font.family: "C059"
                         standardButtons: Dialog.No | Dialog.Yes
                         onAccepted: {
                             Qt.quit()
@@ -238,466 +267,238 @@ ApplicationWindow {
                             Label {
                                 text: "Do you want to Exit..?"
                                 font.pointSize: Screen.height * 0.012
-                                font.family: "Helvetica"
+                                font.family: "C059"
                             }
                         }
                     }
                 }
             }
         }
-
         Rectangle {
             id: homepageid
             y: Screen.height * 0.04 * scalefactor// 40
-            color: "#F8F8FF"  //ghost white color
-            // color: "#FFFFFF"  //white color
-            // color:"#4B4A67"
-            // color:"#051937"
-            // gradient: Gradient {
-            //     GradientStop { position: 0.0; color: "#7393B3" }
-            //     GradientStop { position: 1.0; color: "#FFFDD0" }
-            // }
-            // width: Screen.width * 2
-            // height: Screen.height * 3
+            color: "#2B2D2E"
             width: parent.width
             height: parent.height - titlebarid.height
+
             TabBar {
                 id: tabBarid
-                currentIndex: 2
-                // width: Screen.width * 2
                 width: titlebarid.width
                 anchors.left: parent.left
+                background: Rectangle {
+                    id: rectid1
+                    color: "#2B2D2E"
+                    width: parent.width
+                }
+
                 property real fontSizeMultiplier: parent.height * 0.017
-                TabButton {
-                    property int i: 0
-                    id: tb2
-                    width: titlebarid.width / 3
-                    height: Math.round(40*scalefactor)
-                    property bool set_selected: false
-                    Label {
-                        id: lblid2
-                        text: "Communication Channel"
-                        color: "black"
-                        font.family: "Helvetica"
-                        // font.pointSize: Screen.height * 0.015
-                        // font.pointSize: Math.min(tb2.width / 6, Screen.height * 0.015) // Adjust font size dynamically
-                        // font.pointSize: Math.round(height* 0.7)
-                        // font.pointSize: Math.round(parent.height* 0.4)
-                        font.pointSize: tabBarid.fontSizeMultiplier
-                        anchors.centerIn: tb2
-                    }
 
-                    background: Rectangle {
-                        id: rectid1
-                        color: "#d9d9d9"
-                        width: tabBarid.width
-                    }
-                    onHoveredChanged: {
-                        if(hovered === true){
-                            rectid1.color = "#777f8c"
-                            lblid2.color = "white"
-                        }
-                        else{
-                            rectid1.color = tb2.set_selected === true ? "#777f8c" : "#d9d9d9"
-                            lblid2.color = tb2.set_selected === true ? "white" : "black"
-                        }
-                    }
-                    onClicked: {
-                        console.log("width",tabBarid.width)
-                        rectid1.color = "#777f8c"
-                        lblid2.color = "white"
-                        // lblid1.color = "black"
-                        // rectid0.color = "#d9d9d9"
-                        lblid3.color = "black"
-                        rectid2.color = "#d9d9d9"
-                        lblid4.color = "black"
-                        rectid3.color = "#d9d9d9"
-                        // lblid5.color = "black"
-                        // rectid4.color = "#d9d9d9"
-                        // lblid6.color = "black"
-                        // rectid5.color = "#d9d9d9"
-                        // cmnchan.color = "#d9d9d9"
-                        // cmnch.color = "black"
-                        set_selected = true;
-                        tb3.flash_selected = false;
-                        // tb9.commu_selected = false;
-                        tb4.help_selected = false;
-                        popupRect9.visible = false
-                        // tb5.about_selected = false;
-                        // tb6.exit_selected = false;
-                        // if (i == 0) {
-                        mstackid.push("qrc:/UUU_Tool/Communication/Communication.qml")
-                        // }
-                        // else {
-                        //     mstackid.pushExit
-                        // }
-                    }
+                focus: true
 
+                Keys.onTabPressed: {
+                    tabBarid.currentIndex = (tabBarid.currentIndex + 1) % tabBarid.count
                 }
 
-                TabButton {
-                    id: tb3
-                    width: titlebarid.width / 3
-                    height: Math.round(40*scalefactor)
-                    property bool flash_selected: false
-                    Label {
-                        id: lblid3
-                        text: "Flash Command"
-                        color: "black"
-                        font.family: "Helvetica"
-                        // font.pointSize: Screen.height * 0.015
-                        // font.pointSize: Math.min(tb2.width / 6, Screen.height * 0.015) // Adjust font size dynamically
-                        // font.pointSize: Math.round(height* 0.7)
-                        // font.pointSize: Math.round(parent.height* 0.4)
-                        font.pointSize: tabBarid.fontSizeMultiplier
-                        anchors.centerIn: tb3
-                    }
-
-                    background: Rectangle {
-                        id: rectid2
-                        color: "#d9d9d9"
-                        width: tabBarid.width
-                    }
-                    onHoveredChanged: {
-                        if(hovered === true){
-                            rectid2.color = "#777f8c"
-                            lblid3.color = "white"
-                        }
-                        else{
-                            rectid2.color = tb3.flash_selected ===true?"#777f8c" : "#d9d9d9";
-                            lblid3.color = tb3.flash_selected ===true? "white" : "black";
-                        }
-                    }
-                    onClicked: {
-                        rectid2.color = "#777f8c"
-                        lblid3.color = "white"
-                        lblid2.color = "black"
-                        rectid1.color = "#d9d9d9"
-                        // lblid1.color = "black"
-                        // rectid0.color = "#d9d9d9"
-                        lblid4.color = "black"
-                        rectid3.color = "#d9d9d9"
-                        // lblid5.color = "black"
-                        // rectid4.color = "#d9d9d9"
-                        // lblid6.color = "black"
-                        // rectid5.color = "#d9d9d9"
-                        // cmnchan.color = "#d9d9d9"
-                        // cmnch.color = "black"
-                        flash_selected = true;
-                        tb2.set_selected = false;
-                        // tb9.commu_selected = false;
-                        tb4.help_selected = false;
-                        // tb5.about_selected = false;
-                        // tb6.exit_selected = false;
-                        popupRect9.visible = false
-                        mstackid.push("qrc:/UUU_Tool/Flashcmd.qml")
+                Keys.onPressed: {
+                    if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
+                        loadPage(tabBarid.currentIndex)
+                        event.accepted = true
                     }
                 }
+                // Handle Shift+Tab (Backtab) key press for navigation
 
-                // TabButton {
-                //     id: tb9
-                //     width: titlebarid.width / 4
-                //     height: Math.round(40*scalefactor)
-                //     property bool commu_selected: false
-                //     Label {
-                //         id: cmnch
-                //         text: "Log Files"
-                //         color: "black"
-                //         font.family: "Helvetica"
-                //         // font.pointSize: Screen.height * 0.015
-                //         // font.pointSize: Math.min(tb2.width / 6, Screen.height * 0.015) // Adjust font size dynamically
-                //         // font.pointSize: Math.round(parent.height* 0.4)
-                //         font.pointSize: tabBarid.fontSizeMultiplier
-                //         // font.bold: true
-                //         anchors.centerIn: tb9
-                //     }
+                Keys.onBacktabPressed: {
+                    tabBarid.currentIndex = (tabBarid.currentIndex - 1 + tabBarid.count) % tabBarid.count
+                }
 
-                //     background: Rectangle {
-                //         id: cmnchan
-                //         color: "#d9d9d9"
-                //         width: tabBarid.width
-                //     }
-                //     onHoveredChanged: {
-                //         if(hovered === true){
-                //             cmnchan.color = "#777f8c"
-                //             cmnch.color = "white"
-                //         }
-                //         else{
-                //             cmnchan.color = tb9.commu_selected === true ? "#777f8c" : "#d9d9d9"
-                //             cmnch.color = tb9.commu_selected === true ? "white" : "black"
-                //         }
-                //     }
-                //     onClicked: {
-                //         cmnchan.color = "#777f8c"
-                //         cmnch.color = "white"
-                //         lblid2.color = "black"
-                //         rectid1.color = "#d9d9d9"
-                //         // lblid1.color = "black"
-                //         // rectid0.color = "#d9d9d9"
-                //         lblid4.color = "black"
-                //         rectid3.color = "#d9d9d9"
-                //         // lblid5.color = "black"
-                //         // rectid4.color = "#d9d9d9"
-                //         // lblid6.color = "black"
-                //         // rectid5.color = "#d9d9d9"
-                //         rectid2.color = "#d9d9d9"
-                //         lblid3.color = "black"
-                //         commu_selected = true;
-                //         tb2.set_selected = false;
-                //         tb3.flash_selected = false;
-                //         tb4.help_selected = false;
-                //         // tb5.about_selected = false;
-                //         // tb6.exit_selected = false;
-                //         mstackid.push("qrc:/Settingspage.qml")
+                Repeater {
+                    model: ["Communication", "Flash Command", "Help"]
+                    TabButton {
+                        id: tb2
+                        text: modelData
+                        width: titlebarid.width / 3
+                        height: Math.round(40 * scalefactor)
+                        property bool isHovered: false
 
-                //     }
-                // }
 
-                TabButton {
-                    id: tb4
-                    width: titlebarid.width / 4
-                    height: Math.round(40*scalefactor)
-                    property bool help_selected: false
-                    Label {
-                        id: lblid4
-                        text: "Help"
-                        font.family: "Helvetica"
-                        color: "black"
-                        // font.pointSize: Screen.height * 0.015
-                        // font.pointSize: Math.min(tb2.width / 6, Screen.height * 0.015) // Adjust font size dynamically
-                        // font.pointSize: Math.round(parent.height* 0.4)
-                        font.pointSize: tabBarid.fontSizeMultiplier
-                        anchors.centerIn: tb4
-                    }
-
-                    background: Rectangle {
-                        id: rectid3
-                        color: "#d9d9d9"
-                        width: tabBarid.width
-                    }
-                    onHoveredChanged: {
-                        if(hovered === true){
-                            rectid3.color = "#777f8c"
-                            lblid4.color = "white"
+                        background: Rectangle {
+                            id: rectid2
+                            color: tabBarid.currentIndex === index || tabBarid.isHovered ? "#8059E8":"#777f8c"
+                            width: parent.width
+                            border.color: "#878C92" //"#F4F5F8"
+                            border.width: 1.5
+                            radius: tabBarid.currentIndex === index? 8 : 4
+                            //radius: 12
                         }
-                        else{
-                            rectid3.color = tb4.help_selected === true ? "#777f8c" : "#d9d9d9"
-                            lblid4.color = tb4.help_selected === true ? "white" : "black"
-                        }
-                    }
-                    onClicked: {
-                        rectid3.color = "#777f8c"
-                        lblid4.color = "white"
-
-                        lblid2.color = "black"
-                        rectid1.color = "#d9d9d9"
-                        lblid3.color = "black"
-                        rectid2.color = "#d9d9d9"
-                        // lblid1.color = "black"
-                        // rectid0.color = "#d9d9d9"
-                        // lblid5.color = "black"
-                        // rectid4.color = "#d9d9d9"
-                        // lblid6.color = "black"
-                        // rectid5.color = "#d9d9d9"
-                        // cmnchan.color = "#d9d9d9"
-                        // cmnch.color = "black"
-                        help_selected = true;
-                        tb2.set_selected = false;
-                        tb3.flash_selected = false;
-                        // tb9.commu_selected = false;
-                        // tb5.about_selected = false;
-                        // tb6.exit_selected = false;
-                        popupRect9.visible = true
-                        mstackid.push("qrc:/UUU_Tool/Helppage.qml")
-
-
-                    }
-
-                    Rectangle {
-                        id: popupRect9
-                        width: tb4.width / 2
-                        height: 100 // Adjust height to fit all content
-                        anchors.top: tb4.bottom
-                        color: "#F8F8FF"
-                        anchors.horizontalCenter: tb4.horizontalCenter
-                        visible: false // Initially hidden
-
-                        Column {
-                            spacing: 10
-                            anchors.centerIn: parent
-
-                            Button {
-                                // height: 35
-                                height: Math.round(40*scalefactor)
-                                width: 250
-                                text: "Product Info"
-                                onClicked: {
-                                    mstackid.push("qrc:/UUU_Tool/Productinfo.qml")
-
-                                }
+                        contentItem: Item {
+                            implicitHeight: tb2.height -12
+                            implicitWidth: tb2.width
+                            Text {
+                                text: tb2.text
+                                color: tabBarid.currentIndex === index || tb2.isHovered ? "#000000" :"#FFFFFF"
+                                font.family: "C059"
+                                font.bold: true
+                                font.pointSize: 12
+                                verticalAlignment: Text.AlignVCenter
+                                horizontalAlignment: Text.AlignVCenter
+                                elide: Text.ElideMiddle
+                                anchors.centerIn: parent
                             }
-
-                            Button {
-                                // height: 35
-                                height: Math.round(40*scalefactor)
-                                width: 250
-                                text: "About"
-                                onClicked: {
-                                    mstackid.push("qrc:/UUU_Tool/About.qml")
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            onEntered: {
+                                tb2.isHovered = true;
+                            }
+                            onExited: {
+                                tb2.isHovered = false;
+                            }
+                            onClicked: {
+                                tabBarid.currentIndex = index;
+                                loadPage(index);
+                                // Ensure other tabs' isHovered is set to false
+                                for (var i = 0; i < tabBarid.count; i++) {
+                                    if (i !== index) {
+                                        tabBarid.itemAt(i).isHovered = false;
+                                    }
                                 }
                             }
                         }
                     }
                 }
+            }
 
-                // TabButton {
-                //     id: tb5
-                //     width: titlebarid.width / 6
-                //     height: Math.round(40*scalefactor)
-                //     property bool about_selected: false
-                //     Label {
-                //         id: lblid5
-                //         text: "About"
-                //         color: "black"
-                //         font.family: "Helvetica"
-                //         // font.pointSize: Screen.height * 0.015
-                //         // font.pointSize: Math.min(tb2.width / 6, Screen.height * 0.015) // Adjust font size dynamically
-                //         // font.pointSize: Math.round(parent.height* 0.4)
-                //         font.pointSize: tabBarid.fontSizeMultiplier
-                //         anchors.centerIn: tb5
-                //     }
-                //     background: Rectangle {
-                //         id: rectid4
-                //         color: "#d9d9d9"
-                //         width: tabBarid.width
-                //     }
-                //     onHoveredChanged: {
-                //         if(hovered === true){
-                //             rectid4.color = "#777f8c"
-                //             lblid5.color = "white"
-                //         }
-                //         else{
-                //             rectid4.color = tb5.about_selected ===true?"#777f8c" : "#d9d9d9";
-                //             lblid5.color = tb5.about_selected ===true? "white" : "black";
-                //         }
-                //     }
-                //     onClicked: {
-                //         rectid4.color = "#777f8c"
-                //         lblid5.color = "white"
 
-                //         lblid2.color = "black"
-                //         rectid1.color = "#d9d9d9"
-                //         lblid3.color = "black"
-                //         rectid2.color = "#d9d9d9"
-                //         lblid4.color = "black"
-                //         rectid3.color = "#d9d9d9"
-                //         // lblid1.color = "black"
-                //         // rectid0.color = "#d9d9d9"
-                //         lblid6.color = "black"
-                //         rectid5.color = "#d9d9d9"
-                //         cmnchan.color = "#d9d9d9"
-                //         cmnch.color = "black"
-                //         about_selected = true;
-                //         tb2.set_selected = false;
-                //         tb3.flash_selected = false;
-                //         tb9.commu_selected = false;
-                //         tb4.help_selected = false;
-                //         tb6.exit_selected = false;
-                //         mstackid.push("qrc:/Aboutpage.qml")
-                //     }
-                // }
-                // TabButton {
-                //     id: tb6
-                //     width: titlebarid.width / 6
-                //     height: Math.round(40*scalefactor)
-                //     property bool exit_selected: false
-                //     Label {
-                //         id: lblid6
-                //         text: "Exit"
-                //         color: "black"
-                //         font.family: "Helvetica"
-                //         // font.pointSize: Screen.height * 0.015
-                //         // font.pixelSize: Math.min(tb2.width / 6, Screen.height * 0.020) // Adjust font size dynamically
-                //         // font.pointSize: Math.min(tb2.width / 6, Screen.height * 0.015) // Adjust font size dynamically
-                //         // font.pointSize: Math.round(parent.height* 0.4)
-                //         font.pointSize: tabBarid.fontSizeMultiplier
-                //         anchors.centerIn: tb6
-                //     }
-                //     background: Rectangle {
-                //         id: rectid5
-                //         color: "#d9d9d9"
-                //         width: tabBarid.width
-                //     }
-                //     onHoveredChanged: {
-                //         if(hovered === true){
-                //             rectid5.color = "#777f8c"
-                //             lblid6.color = "white"
-                //         }
-                //         else{
-                //             rectid5.color = tb6.exit_selected ===true?"#777f8c" : "#d9d9d9";
-                //             lblid6.color = tb6.exit_selected ===true? "white" : "black";
-                //         }
-                //     }
-                //     onClicked: {
-                //         lblid6.color = "white"
-                //         rectid5.color = "#777f8c"
-                //         lblid2.color = "black"
-                //         rectid1.color = "#d9d9d9"
-                //         lblid3.color = "black"
-                //         rectid2.color = "#d9d9d9"
-                //         lblid4.color = "black"
-                //         rectid3.color = "#d9d9d9"
-                //         lblid5.color = "black"
-                //         rectid4.color = "#d9d9d9"
-                //         cmnch.color = "black"
-                //         cmnchan.color = "#d9d9d9"
-                //         exit_selected = true;
-                //         tb2.set_selected = false;
-                //         tb3.flash_selected = false;
-                //         tb9.commu_selected = false;
-                //         tb4.help_selected = false;
-                //         tb5.about_selected = false;
-                //         confirmationDialog.open()
-                //     }
-                //     Dialog {
-                //         id: confirmationDialog
-                //         height: Math.round(170*scalefactor)
-                //         width: Math.round(400*scalefactor)
-                //         x: (parent.width - width) / 2
-                //         y: (parent.height - height) / 2
-                //         parent: Overlay.overlay
+        }
 
-                //         modal: true
-                //         title: "Closing Application"
-                //         font.family: "Helvetica"
-                //         font.pointSize: Screen.height * 0.012
-                //         standardButtons: Dialog.No | Dialog .Yes
+        Rectangle {
+            id: popupRect9
+            width: 270
+            height: 150 // Adjust height to fit all content
+            x:1400
+            y:100
+            color:"#595959"
+            visible: false
+            radius: 8
+            Column {
+                spacing: 20
+                anchors.centerIn: parent
 
-                //         onAccepted: {
-                //             Qt.quit()
-                //         }
 
-                //         onRejected: {
-                //             confirmationDialog.close()
-                //         }
-                //         Row {
-                //             spacing: 10
-                //             Image {
-                //                 id: questmarkid
-                //                 source: "qrc:/Image/QuestionMark.png"
-                //                 height: Math.round(30*scalefactor)
-                //                 width: Math.round(30*scalefactor)
-                //             }
+                Button {
+                    // height: 35
+                    height: Math.round(50*scalefactor)
+                    width: 250
+                    // text: "Product Info"
+                    Text {
+                        text: "Product Info"
+                        font.family: "Helvetica"
+                        font.pointSize: Screen.height * 0.015
+                        font.bold: true
+                        // color: enabled ? "#313235" : "#8059E8"
+                        color: "white"
+                        anchors.centerIn: parent
+                    }
+                    background: Rectangle{
+                        radius: 12
+                        color: enabled?  "#8059E8" : "#373B3D"
+                        border.color:  "#8059E8"
+                        border.width: 2
+                    }
+                    onClicked: {
+                        mstackid.push(productinfoPage)
+                        windowid.tabEnablePriority = false
 
-                //             Label {
-                //                 text: "Do you want to Exit..?"
-                //                 font.pointSize: Screen.height * 0.012
-                //                 font.family: "Helvetica"
-                //             }
-                //         }
-                //     }
-                // }
+                    }
+                }
 
+                Button {
+                    // height: 35
+                    height: Math.round(50*scalefactor)
+                    width: 250
+                    // text: "About"
+                    Text {
+                        text: "About"
+                        font.family: "Helvetica"
+                        font.pointSize: Screen.height * 0.015
+                        font.bold: true
+                        // color: enabled ? "#313235" : "#8059E8"
+                        color: "white"
+                        anchors.centerIn: parent
+                    }
+                    background: Rectangle{
+                        radius: 12
+                        color: enabled?  "#8059E8" : "#373B3D"
+                        border.color:  "#8059E8"
+                        border.width: 2
+                    }
+                    onClicked: {
+                        mstackid.push(aboutPage)
+                        windowid.tabEnablePriority = false
+                    }
+                }
+            }
+        }
+    }
+    function loadPage(index) {
+        switch (index) {
+        case 0:
+            console.log("****index****",index)
+            if(windowid.tabEnablePriority){
+                mstackid.push(communicationPage);
+                popupRect9.visible = false
+                windowid.tabEnablePriority=false
+            }
+            break;
+        case 1:
+            if(windowid.tabEnablePriority){
+                mstackid.push(flashcommandPage);
+                popupRect9.visible = false
+                windowid.tabEnablePriority=false
+            }
+            break;
+        case 2:
+            if(windowid.tabEnablePriority){
+                popupRect9.visible=true
+            }
+            break;
+        default:
+            console.error("Invalid index:", index);
+        }
+    }
+
+    Component {
+        id: communicationPage
+
+        Communication {
+            onCommunicationChannelClosed: {
+                windowid.tabEnablePriority = true
+
+            }
+        }
+    }
+    Component {
+        id: flashcommandPage
+        Flashcmd {
+            onFlashCommandClosed: {
+                windowid.tabEnablePriority = true
+            }
+        }
+    }
+    Component {
+        id: productinfoPage
+        Productinfo {
+            onProductInfoClosed: {
+                windowid.tabEnablePriority = true
+            }
+        }
+    }
+    Component {
+        id: aboutPage
+        About {
+            onAboutClosed: {
+                windowid.tabEnablePriority = true
             }
         }
     }
