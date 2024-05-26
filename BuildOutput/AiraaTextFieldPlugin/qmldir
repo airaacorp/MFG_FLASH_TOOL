@@ -1,8 +1,0 @@
-module AiraaTextFieldPlugin
-linktarget AiraaTextFieldPlugin
-optional plugin AiraaTextFieldPlugin
-classname AiraaTextFieldPluginPlugin
-typeinfo AiraaTextFieldPlugin.qmltypes
-prefer :/AiraaTextFieldPlugin/
-AiraaTextField 1.0 AiraaTextField.qml
-

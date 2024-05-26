@@ -19,6 +19,8 @@ list(APPEND project_Qml_files
         Communication/Communication.qml
         Productinfo.qml
         About.qml
+        GeneraPopup.qml
+
 )
 
 list(APPEND project_Source_files
@@ -66,6 +68,8 @@ qt_add_qml_module(app_UUU_Tool
     RESOURCES Image/maximize.png
     RESOURCES
     RESOURCES Image/minimize.png
+    RESOURCES Image/Fileicon.png
+    #QML_FILES GeneraPopup.qml
 )
 
 set_target_properties(app_UUU_Tool PROPERTIES

@@ -16,7 +16,8 @@ ApplicationWindow {
         else if(Screen.height < 1080) return 0.8
         else return 1
     }
-    property bool tabEnablePriority:true
+    property bool tab_restriction:false
+    property int changeIntab
     property int tabIndex: 3
     height:screen.height
     width: screen.width
@@ -285,6 +286,7 @@ ApplicationWindow {
                 id: tabBarid
                 width: titlebarid.width
                 anchors.left: parent.left
+                currentIndex: 4
                 background: Rectangle {
                     id: rectid1
                     color: "#2B2D2E"
@@ -336,9 +338,9 @@ ApplicationWindow {
                             Text {
                                 text: tb2.text
                                 color: tabBarid.currentIndex === index || tb2.isHovered ? "#000000" :"#FFFFFF"
-                                font.family: "C059"
+                                font.family: "Helvetica"//"C059"
                                 font.bold: true
-                                font.pointSize: 12
+                                font.pointSize: 16
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignVCenter
                                 elide: Text.ElideMiddle
@@ -355,12 +357,15 @@ ApplicationWindow {
                                 tb2.isHovered = false;
                             }
                             onClicked: {
-                                tabBarid.currentIndex = index;
-                                loadPage(index);
-                                // Ensure other tabs' isHovered is set to false
-                                for (var i = 0; i < tabBarid.count; i++) {
-                                    if (i !== index) {
-                                        tabBarid.itemAt(i).isHovered = false;
+                                if(index!==tabBarid.currentIndex){
+                                    windowid.changeIntab = index;
+                                    if(windowid.tab_restriction){
+                                        //tab_restrict.open()
+                                        unsaved_popup.open()
+                                    }
+                                    else {
+                                        tabBarid.currentIndex = index;
+                                        loadPage(index);
                                     }
                                 }
                             }
@@ -375,14 +380,15 @@ ApplicationWindow {
         Rectangle {
             id: popupRect9
             width: 270
-            height: 150 // Adjust height to fit all content
-            x:1400
-            y:100
-            color:"#595959"
+            height: 100 // Adjust height to fit all content
+            x:parent.width*(1400/1920)//1400
+            y:parent.height*0.09//90
+            color:"transparent"
+            // border.color: "#7C7C80"
             visible: false
             radius: 8
             Column {
-                spacing: 20
+                spacing: 2
                 anchors.centerIn: parent
 
 
@@ -402,8 +408,9 @@ ApplicationWindow {
                     }
                     background: Rectangle{
                         radius: 12
-                        color: enabled?  "#8059E8" : "#373B3D"
-                        border.color:  "#8059E8"
+                        color: "transparent"
+                        // color: enabled?  "#8059E8" : "#373B3D"
+                        border.color:  "transparent"
                         border.width: 2
                     }
                     onClicked: {
@@ -429,8 +436,9 @@ ApplicationWindow {
                     }
                     background: Rectangle{
                         radius: 12
-                        color: enabled?  "#8059E8" : "#373B3D"
-                        border.color:  "#8059E8"
+                        color: "transparent"
+                        // color: enabled?  "#8059E8" : "#373B3D"
+                        border.color:  "transparent"
                         border.width: 2
                     }
                     onClicked: {
@@ -444,24 +452,16 @@ ApplicationWindow {
     function loadPage(index) {
         switch (index) {
         case 0:
-            console.log("****index****",index)
-            if(windowid.tabEnablePriority){
-                mstackid.push(communicationPage);
-                popupRect9.visible = false
-                windowid.tabEnablePriority=false
-            }
+            mstackid.push(communicationPage);
+            popupRect9.visible = false
             break;
         case 1:
-            if(windowid.tabEnablePriority){
-                mstackid.push(flashcommandPage);
-                popupRect9.visible = false
-                windowid.tabEnablePriority=false
-            }
+            mstackid.push(flashcommandPage);
+            popupRect9.visible = false
             break;
         case 2:
-            if(windowid.tabEnablePriority){
-                popupRect9.visible=true
-            }
+            popupRect9.visible=true
+            mstackid.clear()
             break;
         default:
             console.error("Invalid index:", index);
@@ -470,19 +470,18 @@ ApplicationWindow {
 
     Component {
         id: communicationPage
-
         Communication {
-            onCommunicationChannelClosed: {
-                windowid.tabEnablePriority = true
-
+            onCommunicationChanges: {
+                windowid.tab_restriction = true
             }
         }
     }
     Component {
         id: flashcommandPage
         Flashcmd {
-            onFlashCommandClosed: {
-                windowid.tabEnablePriority = true
+            onFlashChanges: {
+                console.log("******abraham*********")
+                windowid.tab_restriction = true
             }
         }
     }
@@ -500,6 +499,30 @@ ApplicationWindow {
             onAboutClosed: {
                 windowid.tabEnablePriority = true
             }
+        }
+    }
+    GeneraPopup{
+        id:unsaved_popup
+        visible: false
+        height: Math.round(270*scalefactor)
+        width: Math.round(550*scalefactor)
+        anchors.centerIn: parent
+        unsavedHeading:"Unsaved Changes"
+        unsavedContent:"Do you want to Close ..? All unsaved data will be lost"
+        background: Rectangle{
+            border.color: "#2B2D2E"
+            border.width: 2
+        }
+        // anchors.right:parent.height
+        onYesBtnClicked: {
+            tabBarid.currentIndex = windowid.changeIntab
+            windowid.tab_restriction = false
+            loadPage(windowid.changeIntab)
+            tab_restrict.close()
+        }
+
+        onNoBtnClicked: {
+            unsaved_popup.close()
         }
     }
     StackView {
@@ -543,4 +566,22 @@ ApplicationWindow {
             }
         }
     }
+    GeneraPopup{
+        id:exit_popup
+        visible: false
+        height: Math.round(270*scalefactor)
+        width: Math.round(550*scalefactor)
+        anchors.centerIn: parent
+        background: Rectangle{
+            border.color: "#2B2D2E"
+            border.width: 2
+        }
+
+        // anchors.right:parent.height
+        onYesBtnClicked: {
+            Qt.quit()
+        }
+    }
+
+
 }

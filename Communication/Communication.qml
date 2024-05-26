@@ -5,7 +5,7 @@ import QtQuick.Dialogs
 //import com.mycompany.qmlcomponents
 import AiraaTextFieldPlugin 1.0
 import AiraaButtonPlugin 1.0
-
+import AiraaComboBoxPlugin 1.0
 Rectangle {
     id: windowid
     property real scalefactor : {
@@ -22,6 +22,7 @@ Rectangle {
     property int j: 0
     property alias selectedChannel: protocolComboId.currentIndex
     signal communicationChannelClosed()
+    signal communicationChanges()
 
     function showPopup(message,color){
         popupText.text=message
@@ -73,12 +74,9 @@ Rectangle {
                     font.family: "Helvetica"
                     font.pointSize: Screen.height * 0.017
                     color: "#BABDC0"
-                    anchors{
+                    anchors.centerIn: parent
 
-                        left: parent.left
-                        verticalCenter: parent.verticalCenter
-                        leftMargin: 10
-                    }
+
 
                 }
                 Rectangle{
@@ -130,7 +128,7 @@ Rectangle {
                 radius: 8
                 ColumnLayout{
                     anchors.fill: parent
-                    spacing:0
+
                     Rectangle{
                         id:comboBoxRect
                         radius: 8
@@ -141,38 +139,55 @@ Rectangle {
                         color: "transparent"
                         Row{
                             height: 50
-                            width:300
-                            anchors.left: parent.left
-                            anchors.leftMargin: 10
+                            width:parent.width
+                            //anchors.left: parent.left
+                            //anchors.leftMargin: 10
                             spacing: 10
                             Text {
                                 x: Math.round(10*scalefactor)
                                 id: protocolTextId1
-                                text: qsTr("Communication Channel")
+                                text: qsTr("Channel")
                                 font.family: "Helvetica"
                                 color: "#BABDC0"
                                 font.pointSize: Screen.height * 0.017
                                 anchors.verticalCenter: parent.verticalCenter
-
+                                leftPadding: 10
 
                             }
-                            ComboBox
+                            AiraaComboBox
                             {
                                 id: protocolComboId
+                                anchors{
+                                    left: protocolTextId1.right
+                                    //verticalCenter:protocolTextId1.verticalCenter
+                                    top:protocolTextId1.top
+                                    leftMargin:20
+                                }
                                 visible: true
                                 width: Math.round(200*scalefactor)
-                                anchors.verticalCenter: parent.verticalCenter
-                                model: ["Select", "RS232"]/*, "I2C", "SPI"*/
-                                font.family: "Helvetica"
-                                font.pointSize: Screen.height * 0.017
+                                //anchors.verticalCenter: parent.verticalCenter
 
-                                delegate: ItemDelegate{
-                                    text: modelData
-                                    font.pointSize: Screen.height * 0.017
-                                    width: parent.width
-                                    font.family: "Helvetica"
-                                }
+                                modelList: ["Select", "RS232"]/*, "I2C", "SPI"*/
+                                controlTextColor:"white"
+
+                                controlPopupTextColor:"#313235"
+                                comboBoxHeight:40
+                                comboBoxWidth:250
+                                textFontFamily: "Helvetica"
+                                textFontPixel: Screen.height * 0.017
+                                comboTextFontPixel:Screen.height * 0.02
+                                comboTxtFont:"Helvetica"
+                                // delegate: ItemDelegate{
+                                //     text: modelData
+                                //     font.pointSize: Screen.height * 0.017
+                                //     width: parent.width
+                                //     font.family:
+                                // }
                                 currentIndex: 0
+
+                                onCurrentIndexChanged: {
+                                    windowid.communicationChanges()
+                                }
 
                             }
                         }
@@ -197,92 +212,102 @@ Rectangle {
                                 color:"transparent"
                                 visible:windowid.selectedChannel===1?true:false
                                 ColumnLayout{
-                                    anchors.fill: parent
-                                    spacing:4
-                                    Row {
-                                        spacing: Math.round(5 * scalefactor)
-                                        Layout.alignment: Qt.AlignHCenter|Qt.AlignTop
-                                        Layout.topMargin: 120
-                                        Text {
-                                            text: "Port Number:"
-                                            color: "#BABDC0"
-                                            font.family: "Helvetica"
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            font.pointSize: Screen.height * 0.017
-                                            width: Math.round(190*scalefactor)
-                                        }
-                                        AiraaTextField {
-                                            id: portNameTextField
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            onHoveredChanged: {
-                                                if(hovered) {
-                                                    if (!portNameTextField.focus && !portNameTextField.invalidInput)
-                                                        background.color = "#E0E0E0";
-                                                }
-                                                else {
-                                                    if (!portNameTextField.focus && !portNameTextField.invalidInput)
-                                                        background.color = "#F8F8FF";
-                                                }
-                                            }
-
-                                            onTextChanged: {
-                                                //var pattern = /^[a-zA-Z0-9\/]*$/;
-                                                //portNameTextField.invalidInput = !text.startsWith("/") || !pattern.test(text);
-                                                var pattern = /^[a-zA-Z0-9]*$/;
-                                                portNameTextField.invalidInput = !pattern.test(text);
-                                                if (portNameTextField.invalidInput && !hasFocus) {
-                                                    border.color = "red";
-                                                    showPopup2("Invalid Input", "transparent");
-                                                } else {
-                                                    border.color = "#CCCCCC";
-                                                    //popup2.visible = false;
-                                                    //popupText.visible = true;
-                                                }
-                                            }
-                                            property bool invalidInput: false
-                                            property var pattern: /^[a-zA-Z0-9\/]*$/
-                                        }
-                                    }
-
-                                    Row {
-                                        spacing: Math.round(5 * scalefactor)
-                                        Layout.alignment: Qt.AlignHCenter
-                                        Text {
-                                            text: "Frequency:"
-                                            font.family: "Helvetica"
-                                            color: "#BABDC0"
-                                            font.pointSize: Screen.height * 0.017
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            width: Math.round(190*scalefactor)
-                                        }
-                                        AiraaTextField {
-                                            id: baudRateTextField
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            onHoveredChanged: {
-                                                if(hovered) {
-                                                    if (!portNameTextField.focus && !portNameTextField.invalidInput)
-                                                        background.color = "#E0E0E0";
-                                                }
-                                                else {
-                                                    if (!portNameTextField.focus && !portNameTextField.invalidInput)
-                                                        background.color = "#F8F8FF";
-                                                }
-                                            }
-
-                                            onTextChanged: {
-
-                                            }
-                                            property bool invalidInput: false
-                                        }
-                                    }
+                                    anchors.centerIn: parent
+                                    anchors.fill:parent
+                                    spacing: 0
                                     Rectangle{
-                                        id:messageBlock
+                                        id:rect
+
                                         Layout.preferredHeight: 200
                                         Layout.fillWidth: true
+                                        Layout.alignment: Qt.AlignTop
+                                        Layout.topMargin: 200
                                         color: "transparent"
-                                    }
-                                }
 
+
+                                        ColumnLayout{
+                                            anchors.centerIn: parent
+
+                                            Row{
+                                                spacing:0
+                                                Text {
+                                                    id:textPortNumberId
+                                                    text: "Port Number"
+                                                    color: "#BABDC0"
+                                                    font.family: "Helvetica"
+                                                    font.pointSize: Screen.height * 0.017
+                                                    width: Math.round(190*scalefactor)
+
+                                                }
+                                                AiraaTextField {
+                                                    id: portNameTextField
+                                                    height: Math.round(60*scalefactor)
+                                                    width: Math.round(260*scalefactor)
+                                                    textBoxBorderColor: "#878C92"
+                                                    textBoxBorderColorOnFocus:"#8059E8"
+                                                    textBoxBorderWidth: 2
+                                                    textBoxRadius:4
+                                                    textBoxPlaceholderText:"Enter Port Number . . ."
+                                                    textBoxTextColor: "#FAFBFD"
+                                                    textBoxColor: "#373B3D"
+                                                    property bool invalidInput: false
+                                                    property var pattern: /^[a-zA-Z0-9\/]*$/
+                                                    onEditFinished:
+                                                    {
+                                                        console.log("editFinished",textBoxString)
+                                                        //var pattern = /^[a-zA-Z0-9\/]*$/;
+                                                        //portNameTextField.invalidInput = !text.startsWith("/") || !pattern.test(text);
+                                                        var pattern = /^[a-zA-Z0-9]*$/;
+                                                        portNameTextField.invalidInput = !pattern.test(textBoxString);
+                                                        if (portNameTextField.invalidInput && !hasFocus) {
+                                                            border.color = "red";
+                                                            showPopup2("Invalid Input", "transparent");
+                                                        } else {
+                                                            border.color = "#CCCCCC";
+                                                            //popup2.visible = false;
+                                                            //popupText.visible = true;
+                                                        }
+                                                    }
+                                                }
+
+                                            }
+                                            Row{
+
+                                                spacing: 0
+                                                Text {
+                                                    id:textFrequencyId
+                                                    text: "Frequency"
+                                                    color: "#BABDC0"
+                                                    font.family: "Helvetica"
+                                                    font.pointSize: Screen.height * 0.017
+                                                    width: Math.round(190*scalefactor)
+
+                                                }
+                                                AiraaTextField {
+                                                    id: baudRateTextField
+                                                    height:Math.round(60*scalefactor)
+                                                    width: Math.round(260*scalefactor)
+                                                    textBoxBorderColor: "#878C92"
+                                                    textBoxBorderColorOnFocus:"#8059E8"
+                                                    textBoxBorderWidth: 2
+                                                    textBoxRadius:4
+                                                    textBoxPlaceholderText:"Enter Frequency . . ."
+                                                    textBoxTextColor: "#FAFBFD"
+                                                    textBoxColor: "#373B3D"
+                                                    onEditFinished:
+                                                    {
+                                                        console.log("editFinished",textBoxString)
+                                                    }
+                                                    property bool invalidInput: false
+
+                                                }
+
+
+                                            }
+                                        }
+                                    }
+
+                                }
                             }
                         }
                     }
@@ -328,17 +353,20 @@ Rectangle {
                                         //var portPattern = /^[a-zA-Z0-9\/]*$/;
                                         var portPattern = /^[a-zA-Z0-9]*$/;
                                         var frequencyPattern = /^[0-9]*$/;
+                                        console.log("not valid         6666666666",portNameTextField.textBoxString,baudRateTextField.textBoxString)
 
-                                        if (portNameTextField.text.trim() === "" || baudRateTextField.text.trim() === "") {
+                                        if (portNameTextField.textBoxString.trim() === "" || baudRateTextField.textBoxString.trim() === "") {
                                             //showPopup("Please provide Port Number and Frequency", "transparent");
-                                        } else if (!portPattern.test(portNameTextField.text) || !frequencyPattern.test(baudRateTextField.text)) {
+                                            console.log("not valid         9999")
+                                        } else if (!portPattern.test(portNameTextField.textBoxString) || !frequencyPattern.test(baudRateTextField.textBoxString)) {
                                             //showPopup("Invalid Port Number or Frequency", "transparent");
                                             console.log("not valid")
                                         } else {
                                             // If both inputs are valid, proceed to connect
-                                            serialComm.connectSerial(portNameTextField.text, baudRateTextField.text);
+                                            serialComm.connectSerial(portNameTextField.textBoxString, baudRateTextField.textBoxString);
                                             comunicationMediumSelection.visible=false
                                             fileSection.visible=true
+                                            console.log("not valid    -------     6666666666")
                                             //rhomePage.visible = false;
                                         }
                                     }
@@ -367,15 +395,19 @@ Rectangle {
                                         border.width: 2
                                     }
                                     onClicked: {
-                                        portNameTextField.text = ""
-                                        baudRateTextField.text = ""
+                                        portNameTextField.textBoxString = ""
+                                        baudRateTextField.textBoxString = ""
                                     }
                                 }
                             }
 
-                        }}
+                        }
+                    }
                 }
             }
+
+
+
             Rectangle{
                 id:fileSection
                 Layout.fillHeight: true
@@ -387,18 +419,14 @@ Rectangle {
                     anchors.fill:parent
                     spacing:0
 
-                RowLayout{
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    spacing: 0
-                    Rectangle{
-                        id:selectedFileListRect
-                        Layout.fillHeight: true
+                    RowLayout{
                         Layout.fillWidth: true
-                        color: "transparent"
+                        Layout.fillHeight: true
+                        spacing: 0
+
                         Column{
                             anchors.top: parent.top
-                            anchors.topMargin: 50
+                            anchors.topMargin: 20
                             spacing: 20
                             Repeater{
                                 id:fileLocationtext
@@ -408,67 +436,83 @@ Rectangle {
 
                                     Text {
                                         id: file5id
-                                        text: "Select File "+(index+1)+":"
+                                        text: " File "+(index+1)+":"
                                         font.pointSize: 13
                                         font.family: "Helvetica"
                                         color: "white"
                                     }
-
                                     Frame {
                                         id: rect5id
                                         width: Math.round(525*scalefactor)
-                                        height: 33
-
-                                        Label {
-                                            id: selectedFilePathLabel
-                                            text: ""
-                                            color: "#d9d9d9"
-                                            y: -6
-                                            font.pointSize: 13
+                                        height: 29
+                                        background: Rectangle{
+                                            color: "transparent"
+                                            border.width: 2
+                                            border.color: selectedFilePathLabel.visible ? "#c6c6cc":"#636366"
                                         }
 
-                                        Button {
-                                            id: btn5
-                                            width: 30
-                                            height: 27
-                                            x: 480
-                                            y: -9
+                                        Rectangle {
+                                            width: parent.width
+                                            height: parent.height
+                                            color: "transparent"  // Set your desired background color here
+                                            border.color: "transparent"  // Initially set border color to transparent
 
-                                            ToolTip.delay: 1000
-                                            ToolTip.visible: hovered
-                                            ToolTip.text: "Add file that is to be flashed"
-                                            font.family: "Helvetica"
+                                            Label {
+                                                id: selectedFilePathLabel
+                                                text: ""
+                                                color: "#f8f8ff"
+                                                visible: text===""?false:true
+                                                y: -6
+                                                font.pointSize: 13
+                                                elide: Text.ElideMiddle // Adding the elide property
+                                                width: Math.round(480 * scalefactor) // Adjusting the width to fit within the frame
+                                            }
 
-                                            Image {
-                                                id: dwn5arid
-                                                source: "qrc:/UUU_Tool/Image/Downarrow.png"
+                                            Button {
+                                                id: btn5
                                                 width: 27
-                                                height: 25
-                                                anchors.centerIn: btn5
+                                                height: 23
+                                                y: -9
+                                                x: 480
+                                                ToolTip.delay: 1000
+                                                ToolTip.visible: hovered
+                                                ToolTip.text: "Add file that is to be flashed"
+                                                font.family: "Helvetica"
+
+                                                Image {
+                                                    id: dwn5arid
+                                                    source: "qrc:/UUU_Tool/Image/Fileicon.png"
+                                                    width: 27
+                                                    height: 23
+                                                    anchors.centerIn: btn5
+                                                }
+
+                                                onClicked: fileDialog5.open()
+
+                                                FileDialog {
+                                                    id: fileDialog5
+                                                    title: "Choose File"
+                                                    onAccepted: {
+                                                        var file1 = fileDialog5.fileUrls;
+                                                        //selectedFilePathLabel.visible = true
+                                                        selectedFilePathLabel.text = selectedFile
+                                                        console.log("You chose: ", selectedFile)
+                                                        rect5id.border.color = "red";  // Set border color to red after file selection
+                                                    }
+                                                    onRejected: {
+                                                        console.log("File selection canceled");
+                                                    }
+                                                }
                                             }
 
-                                            onClicked: fileDialog5.open()
 
-                                            FileDialog {
-                                                id: fileDialog5
-                                                title: "Choose File"
-                                                onAccepted: {
-                                                    var file1 = fileDialog5.fileUrls;
-                                                   //selectedFilePathLabel.visible = true
-                                                    selectedFilePathLabel.text = selectedFile
-                                                    console.log("You chose: ", selectedFile)
-                                                }
-                                                onRejected: {
-                                                    console.log("File selection canceled");
-                                                }
-                                            }
                                         }
                                     }
 
                                     Button {
                                         id: clear
                                         width: 30
-                                        height: 30
+                                        height: 27
 
                                         ToolTip.delay: 1000
                                         ToolTip.visible: hovered
@@ -477,7 +521,7 @@ Rectangle {
                                         Image {
                                             id: clear5id
                                             source: "qrc:/UUU_Tool/Image/clear.png"
-                                            width: 27
+                                            width: 30
                                             height: 27
                                             anchors.centerIn: clear
                                         }
@@ -493,125 +537,397 @@ Rectangle {
                             }
                         }
 
-                    }
-                    Rectangle{
-                        id:selectedFileBton
-                        Layout.fillHeight: true
-                        Layout.preferredWidth: 100
-                        color: "transparent"
-                        Button {
-                            id: addButton
-                            enabled:(fileLocationtext.model<10)?true:false
-                            anchors.top: parent.top
-                            anchors.topMargin: 50
-                            anchors.horizontalCenter:parent.horizontalCenter
+
+                        Rectangle{
+                            id:selectedFileBton
+                            Layout.fillHeight: true
+                            Layout.preferredWidth: 100
+                            color: "transparent"
+                            Button {
+                                id: addButton
+                                enabled:(fileLocationtext.model<8)?true:false
+                                anchors.top: parent.top
+                                anchors.topMargin: 18
+                                anchors.right: selectedFileBton.right
+                                // anchors.left: left
+
+                                // anchors.horizontalCenter:parent.horizontalCenter
 
 
 
-                            height: Math.round(30 * scalefactor)
-                            width: Math.round(50 * scalefactor)
+                                height: Math.round(30 * scalefactor)
+                                width: Math.round(50 * scalefactor)
 
-                            background: Rectangle{
-                                height:30
-                                width:50
-                                radius: 5
-                                color: enabled?  "#B39CF1" : "#777d89"
-                                border.color: "black"
-                                border.width: 1
-                                Text {
-                                    text: "add"
-                                    font.family: "Helvetica"
-                                    font.pointSize: Screen.height * 0.015
-                                    font.bold: true
-                                    color: enabled ? "#313235" : "#FFFFFF"
-                                    anchors.centerIn: parent
+                                background: Rectangle{
+                                    height:35
+                                    width:80
+                                    radius: 5
+                                    color: enabled ? "#8059E8" : "#373B3D"
+                                    border.color: "black"
+                                    border.width: 1
+                                    Text {
+                                        text: "Add"
+                                        font.family: "Helvetica"
+                                        font.pointSize: Screen.height * 0.015
+                                        font.bold: true
+                                        color: enabled ? "#313235" : "#8059E8"
+                                        anchors.centerIn: parent
+                                    }
+                                }
+                                onClicked: {
+                                    fileLocationtext.model=fileLocationtext.model+1
                                 }
                             }
-                            onClicked: {
-                                    fileLocationtext.model=fileLocationtext.model+1
+
+
+
+                        }
+                    }
+
+
+
+                    Rectangle{
+                        id:hhh
+                        Layout.preferredHeight: 80
+                        Layout.fillWidth: true
+                        Layout.alignment: Qt.AlignBottom
+                        color: "transparent"
+                        Rectangle{
+                            height:parent.height
+                            width:buttonLayout.width
+                            anchors.right: parent.right
+                            anchors.rightMargin: 10
+                            color: "transparent"
+                            RowLayout{
+
+                                id:fileSelectionButtonRect
+                                anchors.centerIn: parent
+
+                                Button {
+                                    id: transmitButton
+                                    enabled:(windowid.selectedChannel>0)?true:false
+                                    Text {
+                                        text: "Transmit"
+                                        font.family: "Helvetica"
+                                        font.pointSize: Screen.height * 0.015
+                                        font.bold: true
+                                        color: enabled ? "#313235" : "#FFFFFF"
+                                        anchors.centerIn: parent
+                                    }
+                                    Layout.preferredWidth: Math.round(200 * scalefactor)
+                                    Layout.preferredHeight: Math.round(60 * scalefactor)
+                                    height: Math.round(60 * scalefactor)
+                                    width: Math.round(200 * scalefactor)
+
+                                    background: Rectangle{
+                                        radius: 12
+                                        color: enabled?  "#B39CF1" : "#777d89"
+                                        border.color: "black"
+                                        border.width: 1
+                                    }
+                                    onClicked: {
+                                        progresspopup.open();
+                                        progressrect.visible = true;
+                                        progressBar.value = 0;
+                                        successText.visible = false;
+                                        progressrect.progressCompleted = false;
+                                        progressTimer.start();
+                                        console.log("transmit button clicked")
+                                    }
+                                }
+                                Button {
+                                    id: clearButton
+                                    Text {
+                                        id:clearText
+                                        text:"Clear"
+                                        font.family: "Helvetica"
+                                        font.pointSize: Screen.height * 0.015
+                                        font.bold: true
+                                        color: "white"
+                                        anchors.centerIn: parent
+                                    }
+                                    Layout.preferredWidth: Math.round(200 * scalefactor)
+                                    Layout.preferredHeight: Math.round(60 * scalefactor)
+                                    height: Math.round(60 * scalefactor)
+                                    width: Math.round(200 * scalefactor)
+                                    background: Rectangle{
+                                        radius: 12
+                                        color: "#777f8c"
+                                        border.color: "black"
+                                        border.width: 1
+                                    }
+                                    onClicked: {
+                                        portNameTextField.text = ""
+                                        baudRateTextField.text = ""
+                                        console.log("clear button clicked")
+                                    }
+                                }
+                            }
+
+
+
+                        }
+                    }
+
+                }
+
+
+
+
+            }
+
+        }
+    }
+
+    Popup {
+        id: progresspopup
+        visible: false
+        height: 300
+        width: 500
+        modal: true
+        closePolicy: Popup.NoAutoClose
+        x: (parent.width - width) / 2
+        y: parent.height - height - 20
+
+        background: Rectangle {
+            color: "transparent"
+        }
+
+        contentItem:    Item {
+            id: progressrect
+            width: 650
+            visible: false
+            // anchors.horizontalCenter: parent.horizontalCenter
+            // anchors.bottom: parent.bottom
+            // anchors.bottomMargin: 250
+
+            property bool progressCompleted: false
+
+            Rectangle {
+                id: r1
+                width: 650
+                height: 250
+                border.color: "black"
+                border.width: 1
+                color: "#373B3D"
+                radius: 8
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 48
+
+                Rectangle {
+                    id: r2
+                    width: parent.width - 1
+                    height: 31
+                    color: "#2B2D2E"
+                    radius: 8
+
+                    ColumnLayout {
+                        anchors.fill: parent
+                        spacing: 10
+
+                        RowLayout {
+                            Layout.fillWidth: true
+                            height: 32
+
+                            Text {
+                                id: title
+                                text: "Progress bar"
+                                color: "#BABDC0"
+                                verticalAlignment: Text.AlignVCenter
+                                font.pointSize: Screen.height * 0.015
+                                horizontalAlignment: Text.AlignHCenter
+                                Layout.fillWidth: true
+                            }
+
+                            Rectangle {
+                                id: closerect1
+                                height: r2.height - 5
+                                width: 30
+                                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                                color: "#2B2D2E"
+
+                                Text {
+                                    id: closetext1
+                                    text: qsTr("X")
+                                    font.pixelSize: 25
+                                    color: "white"
+                                    font.bold: true
+                                    anchors.centerIn: parent
+                                }
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    hoverEnabled: true
+                                    onEntered: {
+                                        closerect1.color = "#661B20"
+                                        closetext1.color = "#B48080"
+                                    }
+                                    onExited: {
+                                        closerect1.color = "#2B2D2E"
+                                        closetext1.color = "white"
+                                    }
+                                    onClicked: {
+                                        progressrect.visible = false;
+                                        progresspopup.close();
+                                    }
+                                }
                             }
                         }
+                    }
 
-
-
+                    Timer {
+                        id: progressTimer
+                        interval: 100 // 100 ms
+                        repeat: true
+                        running: false
+                        onTriggered: {
+                            if (progressBar.value < progressBar.to) {
+                                progressBar.value += 1;
+                            } else {
+                                progressTimer.stop();
+                                successText.visible = true;
+                                progressrect.progressCompleted = true;
+                            }
+                        }
                     }
                 }
-                Rectangle{
-                    id:hhh
-                    Layout.preferredHeight: 80
-                    Layout.fillWidth: true
-                    Layout.alignment: Qt.AlignBottom
-                    color: "transparent"
-                    Rectangle{
-                        height:parent.height
-                        width:buttonLayout.width
-                        anchors.right: parent.right
-                        anchors.rightMargin: 10
-                        color: "transparent"
-                        RowLayout{
 
-                            id:fileSelectionButtonRect
+                Rectangle {
+                    id: progressBarBackground
+                    width: parent.width - 120
+                    height: 20
+                    color: "#555555"
+                    radius: 5
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: r2.bottom
+                    anchors.topMargin: 40
 
-                            Button {
-                                id: transmitButton
-                                enabled:(windowid.selectedChannel>0)?true:false
-                                Text {
-                                    text: "Transmit"
-                                    font.family: "Helvetica"
-                                    font.pointSize: Screen.height * 0.015
-                                    font.bold: true
-                                    color: enabled ? "#313235" : "#FFFFFF"
-                                    anchors.centerIn: parent
-                                }
-                                Layout.preferredWidth: Math.round(200 * scalefactor)
-                                Layout.preferredHeight: Math.round(60 * scalefactor)
-                                height: Math.round(60 * scalefactor)
-                                width: Math.round(200 * scalefactor)
+                    Rectangle {
+                        id: progressBarIndicator
+                        width: progressBarBackground.width * (progressBar.value / progressBar.to)
+                        height: parent.height
+                        color: "#00f700"
+                        radius: 5
+                    }
+                }
 
-                                background: Rectangle{
-                                    radius: 12
-                                    color: enabled?  "#B39CF1" : "#777d89"
-                                    border.color: "black"
-                                    border.width: 1
-                                }
-                                onClicked: {
-                                    console.log("transmit button clicked")
-                                }
-                            }
-                            Button {
-                                id: clearButton
-                                Text {
-                                    id:clearText
-                                    text:"Clear"
-                                    font.family: "Helvetica"
-                                    font.pointSize: Screen.height * 0.015
-                                    font.bold: true
-                                    color: "white"
-                                    anchors.centerIn: parent
-                                }
-                                Layout.preferredWidth: Math.round(200 * scalefactor)
-                                Layout.preferredHeight: Math.round(60 * scalefactor)
-                                height: Math.round(60 * scalefactor)
-                                width: Math.round(200 * scalefactor)
-                                background: Rectangle{
-                                    radius: 12
-                                    color: "#777f8c"
-                                    border.color: "black"
-                                    border.width: 1
-                                }
-                                onClicked: {
-                                    portNameTextField.text = ""
-                                    baudRateTextField.text = ""
-                                    console.log("clear button clicked")
-                                }
-                            }
+                ProgressBar {
+                    id: progressBar
+                    from: 0
+                    to: 100
+                    value: 0
+                    visible: false
+                }
+
+                Text {
+                    id: progressText
+                    text: progressBar.value + " %"
+                    color: "#BABDC0"
+                    font.pixelSize: 16
+                    anchors.verticalCenter: progressBarBackground.verticalCenter
+                    anchors.left: progressBarBackground.right
+                    anchors.leftMargin: 10
+                }
+
+                Text {
+                    id: successText
+                    text: "Successfully transmitted"
+                    color: "#00f700"
+                    font.pixelSize: 17
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: progressBarBackground.bottom
+                    anchors.topMargin: 40
+                    visible: false
+                }
+
+                RowLayout {
+                    id: buttonsRow
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: successText.bottom
+                    anchors.topMargin: 40
+                    spacing: 10
+
+                    Button {
+                        id: abortButton
+                        Text {
+                            text: "Abort"
+                            font.family: "Helvetica"
+                            font.pointSize: Screen.height * 0.015
+                            font.bold: true
+                            color: enabled ? "#313235" : "#8059E8"
+                            anchors.centerIn: parent
                         }
+                        Layout.preferredWidth: 150
+                        Layout.preferredHeight: 50
+                        background: Rectangle {
+                            radius: 5
+                            color: enabled ? "#8059E8" : "#373B3D"
+                            border.color: "#8059E8"
+                            border.width: 2
+                        }
+                        onClicked: {
+                            progressTimer.stop();
+                        }
+                        enabled: progressTimer.running
+                    }
 
-                    }}
+                    Button {
+                        id: retryButton
+                        Text {
+                            text: "Retry"
+                            font.family: "Helvetica"
+                            font.pointSize: Screen.height * 0.015
+                            font.bold: true
+                            color: enabled ? "#313235" : "#8059E8"
+                            anchors.centerIn: parent
+                        }
+                        Layout.preferredWidth: 150
+                        Layout.preferredHeight: 50
+                        background: Rectangle {
+                            radius: 5
+                            color: enabled ? "#8059E8" : "#373B3D"
+                            border.color: "#8059E8"
+                            border.width: 2
+                        }
+                        onClicked: {
+                            progressBar.value = 0;
+                            successText.visible = false;
+                            progressTimer.start();
+                            progressrect.progressCompleted = false;
+                        }
+                        enabled: !progressTimer.running && !progressrect.progressCompleted
+                    }
 
+                    Button {
+                        id: closeButton
+                        Text {
+                            text: "Done"
+                            font.family: "Helvetica"
+                            font.pointSize: Screen.height * 0.015
+                            font.bold: true
+                            color: enabled ? "#313235" : "#8059E8"
+                            anchors.centerIn: parent
+                        }
+                        Layout.preferredWidth: 150
+                        Layout.preferredHeight: 50
+                        background: Rectangle {
+                            radius: 5
+                            color: enabled ? "#8059E8" : "#373B3D"
+                            border.color: "#8059E8"
+                            border.width: 2
+                        }
+                        onClicked: {
+                            progressrect.visible = false;
+                            progresspopup.close();
+                        }
+                        enabled: !progressTimer.running
+                    }
                 }
             }
         }
+
     }
+
 
 }

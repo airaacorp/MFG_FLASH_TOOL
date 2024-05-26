@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.3
 import QtQuick.Dialogs
+import AiraaComboBoxPlugin 1.0
 
 Item {
     id: flashcmdid
@@ -16,6 +17,7 @@ Item {
     width: parent.width
     visible: true
     signal flashCommandClosed()
+    signal flashChanges()
 
     Rectangle {
         id: flashwindow
@@ -43,11 +45,7 @@ Item {
                     font.family: "Helvetica"
                     font.pointSize: Screen.height * 0.017
                     color: "#BABDC0"
-                    anchors{
-                        left: parent.left
-                        verticalCenter: parent.verticalCenter
-                        leftMargin: 10
-                    }
+                    anchors.centerIn: parent
                 }
 
                 Rectangle{
@@ -94,32 +92,51 @@ Item {
             y: parent.height * 0.07
             x: parent.width * 0.01
             Row {
-                spacing: 13
+                spacing: 10
 
                 Label {
+                    id:optionId
                     text: "Options"
                     font.pointSize: Screen.height * 0.017
                     font.family: "Helvetica"
                     color: "white"
+                    leftPadding: 10
                 }
 
-                ComboBox {
-                    id: _comb
-                    model: ["Select","Windows", "Linux"]
-                    onCurrentIndexChanged: {
-                        if (currentIndex === 2) {
-                            linuxTerminal.visible = true
-                            windowsPromt.visible = false
-                        } else if (currentIndex === 1) {
-                            windowsPromt.visible = true
-                            linuxTerminal.visible = false
-                        }else{
-                            if(currentIndex === 0){
-                                linuxTerminal.visible=false
-                                windowsPromt.visible=false
-                            }
-                        }
+                AiraaComboBox
+                {
+                    id: protocolComboId
+                    anchors{
+                        left: optionId.right
+                        top:optionId.top
+                        leftMargin:20
                     }
+                    visible: true
+                    width: Math.round(200*scalefactor)
+                    anchors.verticalCenter: parent.verticalCenter
+                    modelList: ["Select", "Windows", "Linux"]
+                    controlTextColor:"white"
+
+                    controlPopupTextColor:"#313235"
+                    comboBoxHeight:40
+                    comboBoxWidth:250
+                    textFontFamily: "Helvetica"
+                    textFontPixel: Screen.height * 0.017
+                    comboTextFontPixel:Screen.height * 0.02
+                    comboTxtFont:"Helvetica"
+                    // delegate: ItemDelegate{
+                    //     text: modelData
+                    //     font.pointSize: Screen.height * 0.017
+                    //     width: parent.width
+                    //     font.family: "Helvetica"
+                    // }
+                    currentIndex: 0
+                    onCurrentIndexChanged: {
+                        flashcmdid.flashChanges()
+                    }
+
+
+
                 }
             }
 
