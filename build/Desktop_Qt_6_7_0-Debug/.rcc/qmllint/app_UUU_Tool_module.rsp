@@ -1,0 +1,10 @@
+-I
+/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug
+-I
+/home/test/Qt/6.7.0/gcc_64/./qml
+--resource
+/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/.rcc/qmake_UUU_Tool.qrc
+--resource
+/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/.rcc/app_UUU_Tool_raw_qml_0.qrc
+--module
+UUU_Tool

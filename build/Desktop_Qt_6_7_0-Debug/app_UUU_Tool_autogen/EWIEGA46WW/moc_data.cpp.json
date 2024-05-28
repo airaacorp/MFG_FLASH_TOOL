@@ -1,0 +1,49 @@
+{
+    "classes": [
+        {
+            "className": "Data",
+            "object": true,
+            "qualifiedClassName": "Data",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "changePopup",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "notifyConnect",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "rectColor",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "tmStop",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "status",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "name": "check",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "data.h",
+    "outputRevision": 68
+}

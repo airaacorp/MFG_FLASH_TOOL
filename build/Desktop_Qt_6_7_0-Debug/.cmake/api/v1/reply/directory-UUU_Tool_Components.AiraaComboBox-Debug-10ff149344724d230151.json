@@ -1,0 +1,45 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"UUU_Tool_Components/AiraaComboBox/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 41,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/BuildOutput/AiraaComboBoxPlugin/libAiraaComboBoxPlugin.so"
+			],
+			"targetId" : "AiraaComboBoxPlugin::@f6bf0285cdcbb755d4fe",
+			"targetIndex" : 9,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "UUU_Tool_Components/AiraaComboBox",
+		"source" : "UUU_Tool_Components/AiraaComboBox"
+	}
+}

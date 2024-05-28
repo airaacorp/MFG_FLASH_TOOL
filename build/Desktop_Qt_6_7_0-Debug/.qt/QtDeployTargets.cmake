@@ -1,0 +1,4 @@
+set(__QT_DEPLOY_TARGET_AiraaTextFieldPlugin_FILE /home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/BuildOutput/AiraaTextFieldPlugin/libAiraaTextFieldPlugin.so)
+set(__QT_DEPLOY_TARGET_AiraaButtonPlugin_FILE /home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/BuildOutput/AiraaButtonPlugin/libAiraaButtonPlugin.so)
+set(__QT_DEPLOY_TARGET_AiraaComboBoxPlugin_FILE /home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/BuildOutput/AiraaComboBoxPlugin/libAiraaComboBoxPlugin.so)
+set(__QT_DEPLOY_TARGET_app_UUU_Tool_FILE /home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/BuildOutput/app_UUU_Tool)

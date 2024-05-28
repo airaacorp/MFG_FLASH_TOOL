@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/AiraaComboBoxPlugin/">
+    <file alias="AiraaComboBox.qml">/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/UUU_Tool_Components/AiraaComboBox/AiraaComboBox.qml</file>
+  </qresource>
+</RCC>
+

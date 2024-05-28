@@ -1,0 +1,14 @@
+-rootPath
+/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL
+-cmake-output
+-output-file
+/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/.qt_plugins/Qt6_QmlPlugins_Imports_app_UUU_Tool.cmake
+-importPath
+/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool
+-importPath
+/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug
+-importPath
+/home/test/Qt/6.7.0/gcc_64/./qml
+-qrcFiles
+/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/.rcc/qmake_UUU_Tool.qrc
+/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/.rcc/app_UUU_Tool_raw_qml_0.qrc

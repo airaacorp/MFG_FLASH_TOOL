@@ -1,0 +1,17 @@
+{
+    "classes": [
+        {
+            "className": "AiraaButtonPluginPlugin",
+            "object": true,
+            "qualifiedClassName": "AiraaButtonPluginPlugin",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QQmlEngineExtensionPlugin"
+                }
+            ]
+        }
+    ],
+    "inputFile": "AiraaButtonPlugin_AiraaButtonPluginPlugin.cpp",
+    "outputRevision": 68
+}

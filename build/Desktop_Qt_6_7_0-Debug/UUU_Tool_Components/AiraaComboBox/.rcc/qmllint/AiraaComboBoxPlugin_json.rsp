@@ -1,0 +1,10 @@
+--bare
+-I
+/home/test/Qt/6.7.0/gcc_64/./qml
+--resource
+/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaComboBox/.rcc/qmake_AiraaComboBoxPlugin.qrc
+--resource
+/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaComboBox/.rcc/AiraaComboBoxPlugin_raw_qml_0.qrc
+/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/UUU_Tool_Components/AiraaComboBox/AiraaComboBox.qml
+--json
+/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/AiraaComboBoxPlugin_qmllint.json

@@ -1,0 +1,511 @@
+{
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"qt6_target_qml_sources",
+			"qt6_add_qml_module",
+			"qt_add_qml_module",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 59,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 776,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 647,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 2729,
+				"parent" : 3
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 2732,
+				"parent" : 3
+			}
+		]
+	},
+	"folder" : 
+	{
+		"name" : "QtInternalTargets"
+	},
+	"id" : "app_UUU_Tool_tooling::@6890427a1f51a3e7e1df",
+	"name" : "app_UUU_Tool_tooling",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6
+			]
+		},
+		{
+			"name" : "Resources",
+			"sourceIndexes" : 
+			[
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/main.qml",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Settingspage.qml",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Flashcmd.qml",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Communication/Communication.qml",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Productinfo.qml",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/About.qml",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/GeneraPopup.qml",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/Search.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/QuestionMark.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/Downarrow.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/flash1.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/Airaa_Logo.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/add.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/clear.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/maxid.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/closeid.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/minid.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/close.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/close3.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/tick_icon.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/Close_red.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/3.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/2.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/1.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/BackButton.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/AcL2.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/closeIcon.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/maximize.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/minimize.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/Fileicon.png",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/main.qml.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Settingspage.qml.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Flashcmd.qml.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Communication/Communication.qml.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Productinfo.qml.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/About.qml.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/GeneraPopup.qml.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/Search.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/QuestionMark.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/Downarrow.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/flash1.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/Airaa_Logo.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/add.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/clear.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/maxid.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/closeid.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/minid.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/close.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/close3.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/tick_icon.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/Close_red.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/3.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/2.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/1.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/BackButton.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/AcL2.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/closeIcon.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/maximize.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/minimize.png.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0-Debug/UUU_Tool/Image/Fileicon.png.rule",
+			"sourceGroupIndex" : 2
+		}
+	],
+	"type" : "INTERFACE_LIBRARY"
+}

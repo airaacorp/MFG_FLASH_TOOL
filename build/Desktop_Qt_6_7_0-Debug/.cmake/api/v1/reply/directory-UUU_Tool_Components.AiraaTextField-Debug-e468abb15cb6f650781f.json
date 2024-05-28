@@ -1,0 +1,45 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"UUU_Tool_Components/AiraaTextField/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 41,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/BuildOutput/AiraaTextFieldPlugin/libAiraaTextFieldPlugin.so"
+			],
+			"targetId" : "AiraaTextFieldPlugin::@13636a6d286b7f7edd96",
+			"targetIndex" : 18,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "UUU_Tool_Components/AiraaTextField",
+		"source" : "UUU_Tool_Components/AiraaTextField"
+	}
+}

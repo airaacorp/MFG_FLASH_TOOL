@@ -1,0 +1,19 @@
+[
+    {
+        "classes": [
+            {
+                "className": "AiraaComboBoxPluginPlugin",
+                "object": true,
+                "qualifiedClassName": "AiraaComboBoxPluginPlugin",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQmlEngineExtensionPlugin"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "AiraaComboBoxPlugin_AiraaComboBoxPluginPlugin.cpp",
+        "outputRevision": 68
+    }
+]

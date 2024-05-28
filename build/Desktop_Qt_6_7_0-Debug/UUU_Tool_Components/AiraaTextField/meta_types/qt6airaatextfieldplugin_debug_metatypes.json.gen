@@ -1,0 +1,19 @@
+[
+    {
+        "classes": [
+            {
+                "className": "AiraaTextFieldPluginPlugin",
+                "object": true,
+                "qualifiedClassName": "AiraaTextFieldPluginPlugin",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQmlEngineExtensionPlugin"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "AiraaTextFieldPlugin_AiraaTextFieldPluginPlugin.cpp",
+        "outputRevision": 68
+    }
+]

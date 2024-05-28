@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/AiraaComboBoxPlugin">
+    <file alias="qmldir">/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaComboBox/qmldir</file>
+  </qresource>
+</RCC>
+

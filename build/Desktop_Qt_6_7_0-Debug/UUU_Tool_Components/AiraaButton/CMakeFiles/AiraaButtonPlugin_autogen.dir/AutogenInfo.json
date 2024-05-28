@@ -1,0 +1,161 @@
+{
+	"BUILD_DIR" : "/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/AiraaButtonPlugin_autogen",
+	"CMAKE_BINARY_DIR" : "/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/UUU_Tool_Components/AiraaButton",
+	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
+	"CMAKE_LIST_FILES" : 
+	[
+		"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/UUU_Tool_Components/AiraaButton/CMakeLists.txt",
+		"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/.qtc/package-manager/auto-setup.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/Qt6Config.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/Qt6ConfigExtras.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/Qt6Targets.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/Qt6VersionlessTargets.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtFeature.cmake",
+		"/usr/share/cmake-3.22/Modules/CheckCXXCompilerFlag.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtFeatureCommon.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtPublicAppleHelpers.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtPublicCMakeHelpers.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtPublicExternalProjectHelpers.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtPublicFinalizerHelpers.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtPublicFindPackageHelpers.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtPublicPluginHelpers.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtPublicTargetHelpers.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtPublicTestHelpers.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtPublicToolHelpers.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake",
+		"/usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6/Qt6Dependencies.cmake",
+		"/usr/share/cmake-3.22/Modules/FindThreads.cmake",
+		"/usr/share/cmake-3.22/Modules/CheckLibraryExists.cmake",
+		"/usr/share/cmake-3.22/Modules/CheckIncludeFileCXX.cmake",
+		"/usr/share/cmake-3.22/Modules/CheckCXXSourceCompiles.cmake",
+		"/usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake",
+		"/usr/share/cmake-3.22/Modules/FindPackageMessage.cmake",
+		"/usr/share/cmake-3.22/Modules/GNUInstallDirs.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6Core/Qt6CoreConfigureFileTemplate.in",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6Qml/Qt6QmlPluginTemplate.cpp.in",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6Qml/Qt6QmlModuleDirMappingTemplate.qrc.in",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6Core/Qt6CoreConfigureFileTemplate.in",
+		"/usr/share/cmake-3.22/Modules/GNUInstallDirs.cmake",
+		"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6Qml/Qt6qmldirTemplate.cmake.in"
+	],
+	"CMAKE_SOURCE_DIR" : "/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL",
+	"DEP_FILE" : "/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/AiraaButtonPlugin_autogen/deps",
+	"DEP_FILE_RULE_NAME" : "AiraaButtonPlugin_autogen/timestamp",
+	"HEADERS" : [],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/AiraaButtonPlugin_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/AiraaButtonPlugin_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : 
+	[
+		"AiraaButtonPlugin_EXPORTS",
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_NETWORK_LIB",
+		"QT_OPENGL_LIB",
+		"QT_QMLBUILTINS_LIB",
+		"QT_QMLINTEGRATION_LIB",
+		"QT_QMLMODELS_LIB",
+		"QT_QML_LIB",
+		"QT_QUICK_LIB"
+	],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/UUU_Tool_Components/AiraaButton",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtQml/6.7.0",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtQml/6.7.0/QtQml",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtCore/6.7.0",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtCore/6.7.0/QtCore",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtCore",
+		"/home/test/Qt/6.7.0/gcc_64/include",
+		"/home/test/Qt/6.7.0/gcc_64/mkspecs/linux-g++",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtQmlBuiltins/6.7.0",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtQmlBuiltins/6.7.0/QtQmlBuiltins",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtQmlBuiltins",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtQml",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtQmlIntegration",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtNetwork",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtQuick",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtGui",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtQmlModels",
+		"/home/test/Qt/6.7.0/gcc_64/include/QtOpenGL",
+		"/usr/include",
+		"/usr/include/c++/11",
+		"/usr/include/x86_64-linux-gnu/c++/11",
+		"/usr/include/c++/11/backward",
+		"/usr/lib/gcc/x86_64-linux-gnu/11/include",
+		"/usr/local/include",
+		"/usr/include/x86_64-linux-gnu"
+	],
+	"MOC_MACRO_NAMES" : 
+	[
+		"Q_OBJECT",
+		"Q_GADGET",
+		"Q_NAMESPACE",
+		"Q_NAMESPACE_EXPORT",
+		"Q_GADGET_EXPORT",
+		"Q_ENUM_NS"
+	],
+	"MOC_OPTIONS" : [ "-Muri=AiraaButtonPlugin", "--output-json" ],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/usr/bin/g++",
+		"-dM",
+		"-E",
+		"-c",
+		"/usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/AiraaButtonPlugin_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : 
+	[
+		"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/.rcc/qmlcache/AiraaButtonPlugin_AiraaButton_qml.cpp",
+		"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/.rcc/qmlcache/AiraaButtonPlugin_qmlcache_loader.cpp",
+		"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/.rcc/qrc_AiraaButtonPlugin_raw_qml_0.cpp",
+		"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/.rcc/qrc_qmake_AiraaButtonPlugin.cpp",
+		"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/airaabuttonplugin_qmltyperegistrations.cpp"
+	],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 4,
+	"PARSE_CACHE_FILE" : "/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/CMakeFiles/AiraaButtonPlugin_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/home/test/Qt/6.7.0/gcc_64/./libexec/moc",
+	"QT_UIC_EXECUTABLE" : "",
+	"QT_VERSION_MAJOR" : 6,
+	"QT_VERSION_MINOR" : 7,
+	"SETTINGS_FILE" : "/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/CMakeFiles/AiraaButtonPlugin_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/AiraaButtonPlugin_AiraaButtonPluginPlugin.cpp",
+			"MU",
+			null
+		]
+	],
+	"UIC_OPTIONS" : [],
+	"UIC_SEARCH_PATHS" : [],
+	"UIC_SKIP" : 
+	[
+		"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/.rcc/qmlcache/AiraaButtonPlugin_AiraaButton_qml.cpp",
+		"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/.rcc/qmlcache/AiraaButtonPlugin_qmlcache_loader.cpp",
+		"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/.rcc/qrc_AiraaButtonPlugin_raw_qml_0.cpp",
+		"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/.rcc/qrc_qmake_AiraaButtonPlugin.cpp",
+		"/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug/UUU_Tool_Components/AiraaButton/airaabuttonplugin_qmltyperegistrations.cpp"
+	],
+	"UIC_UI_FILES" : [],
+	"VERBOSITY" : 0
+}

@@ -1,0 +1,502 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-7202efdff3f1fde4d1f7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39
+					]
+				},
+				{
+					"build" : "UUU_Tool_Components/AiraaTextField",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-UUU_Tool_Components.AiraaTextField-Debug-e468abb15cb6f650781f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "UUU_Tool_Components/AiraaTextField",
+					"targetIndexes" : 
+					[
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30
+					]
+				},
+				{
+					"build" : "UUU_Tool_Components/AiraaButton",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-UUU_Tool_Components.AiraaButton-Debug-13ff1f4f72cbd673f54b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "UUU_Tool_Components/AiraaButton",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				},
+				{
+					"build" : "UUU_Tool_Components/AiraaComboBox",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-UUU_Tool_Components.AiraaComboBox-Debug-10ff149344724d230151.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "UUU_Tool_Components/AiraaComboBox",
+					"targetIndexes" : 
+					[
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "UUU_Tool",
+					"targetIndexes" : 
+					[
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "AiraaTextField",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "AiraaButton",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "AiraaComboBox",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "AiraaButtonPlugin::@c04b70de9b3e88cf9aeb",
+					"jsonFile" : "target-AiraaButtonPlugin-Debug-f3ee06357cdc0544a218.json",
+					"name" : "AiraaButtonPlugin",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "AiraaButtonPlugin_autogen::@c04b70de9b3e88cf9aeb",
+					"jsonFile" : "target-AiraaButtonPlugin_autogen-Debug-c723cfd2de6aeae99cdf.json",
+					"name" : "AiraaButtonPlugin_autogen",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "AiraaButtonPlugin_autogen_timestamp_deps::@c04b70de9b3e88cf9aeb",
+					"jsonFile" : "target-AiraaButtonPlugin_autogen_timestamp_deps-Debug-21b3a403f5beadab8d1c.json",
+					"name" : "AiraaButtonPlugin_autogen_timestamp_deps",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "AiraaButtonPlugin_qmllint::@c04b70de9b3e88cf9aeb",
+					"jsonFile" : "target-AiraaButtonPlugin_qmllint-Debug-7da49dbdbe114338895b.json",
+					"name" : "AiraaButtonPlugin_qmllint",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "AiraaButtonPlugin_qmllint_json::@c04b70de9b3e88cf9aeb",
+					"jsonFile" : "target-AiraaButtonPlugin_qmllint_json-Debug-fd092eb758025c9ef1cf.json",
+					"name" : "AiraaButtonPlugin_qmllint_json",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "AiraaButtonPlugin_qmllint_module::@c04b70de9b3e88cf9aeb",
+					"jsonFile" : "target-AiraaButtonPlugin_qmllint_module-Debug-71d6b2d267e484930e00.json",
+					"name" : "AiraaButtonPlugin_qmllint_module",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "AiraaButtonPlugin_qmltyperegistration::@c04b70de9b3e88cf9aeb",
+					"jsonFile" : "target-AiraaButtonPlugin_qmltyperegistration-Debug-5ed2c376581aaa24610c.json",
+					"name" : "AiraaButtonPlugin_qmltyperegistration",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "AiraaButtonPlugin_tooling::@c04b70de9b3e88cf9aeb",
+					"jsonFile" : "target-AiraaButtonPlugin_tooling-Debug-db6353798ed25e46c8f0.json",
+					"name" : "AiraaButtonPlugin_tooling",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "AiraaButton_copy_qmldir_file::@c04b70de9b3e88cf9aeb",
+					"jsonFile" : "target-AiraaButton_copy_qmldir_file-Debug-9e771531cf0194c76ffe.json",
+					"name" : "AiraaButton_copy_qmldir_file",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "AiraaComboBoxPlugin::@f6bf0285cdcbb755d4fe",
+					"jsonFile" : "target-AiraaComboBoxPlugin-Debug-ba8017fa62ecc781dc8c.json",
+					"name" : "AiraaComboBoxPlugin",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "AiraaComboBoxPlugin_autogen::@f6bf0285cdcbb755d4fe",
+					"jsonFile" : "target-AiraaComboBoxPlugin_autogen-Debug-0465c2ee1c0c176b053d.json",
+					"name" : "AiraaComboBoxPlugin_autogen",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "AiraaComboBoxPlugin_autogen_timestamp_deps::@f6bf0285cdcbb755d4fe",
+					"jsonFile" : "target-AiraaComboBoxPlugin_autogen_timestamp_deps-Debug-e4021b0a581637bda0f6.json",
+					"name" : "AiraaComboBoxPlugin_autogen_timestamp_deps",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "AiraaComboBoxPlugin_qmllint::@f6bf0285cdcbb755d4fe",
+					"jsonFile" : "target-AiraaComboBoxPlugin_qmllint-Debug-8d89f83e245dd4653109.json",
+					"name" : "AiraaComboBoxPlugin_qmllint",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "AiraaComboBoxPlugin_qmllint_json::@f6bf0285cdcbb755d4fe",
+					"jsonFile" : "target-AiraaComboBoxPlugin_qmllint_json-Debug-3cbc7c1bb28958ba96ce.json",
+					"name" : "AiraaComboBoxPlugin_qmllint_json",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "AiraaComboBoxPlugin_qmllint_module::@f6bf0285cdcbb755d4fe",
+					"jsonFile" : "target-AiraaComboBoxPlugin_qmllint_module-Debug-d0b17704fb2c5022dfab.json",
+					"name" : "AiraaComboBoxPlugin_qmllint_module",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "AiraaComboBoxPlugin_qmltyperegistration::@f6bf0285cdcbb755d4fe",
+					"jsonFile" : "target-AiraaComboBoxPlugin_qmltyperegistration-Debug-dfa765a715134f7d61fc.json",
+					"name" : "AiraaComboBoxPlugin_qmltyperegistration",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "AiraaComboBoxPlugin_tooling::@f6bf0285cdcbb755d4fe",
+					"jsonFile" : "target-AiraaComboBoxPlugin_tooling-Debug-0fb297b92ad628f9e3fd.json",
+					"name" : "AiraaComboBoxPlugin_tooling",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "AiraaComboBox_copy_qmldir_file::@f6bf0285cdcbb755d4fe",
+					"jsonFile" : "target-AiraaComboBox_copy_qmldir_file-Debug-9bb4196fa08e7d9b4937.json",
+					"name" : "AiraaComboBox_copy_qmldir_file",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "AiraaTextFieldPlugin::@13636a6d286b7f7edd96",
+					"jsonFile" : "target-AiraaTextFieldPlugin-Debug-3b4731a6faeca7d7eb65.json",
+					"name" : "AiraaTextFieldPlugin",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "AiraaTextFieldPlugin_autogen::@13636a6d286b7f7edd96",
+					"jsonFile" : "target-AiraaTextFieldPlugin_autogen-Debug-0a01c65dee1da09a3ab5.json",
+					"name" : "AiraaTextFieldPlugin_autogen",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "AiraaTextFieldPlugin_autogen_timestamp_deps::@13636a6d286b7f7edd96",
+					"jsonFile" : "target-AiraaTextFieldPlugin_autogen_timestamp_deps-Debug-2d26188768cb6b6055ff.json",
+					"name" : "AiraaTextFieldPlugin_autogen_timestamp_deps",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "AiraaTextFieldPlugin_qmllint::@13636a6d286b7f7edd96",
+					"jsonFile" : "target-AiraaTextFieldPlugin_qmllint-Debug-c09b17c0a1f763546d94.json",
+					"name" : "AiraaTextFieldPlugin_qmllint",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "AiraaTextFieldPlugin_qmllint_json::@13636a6d286b7f7edd96",
+					"jsonFile" : "target-AiraaTextFieldPlugin_qmllint_json-Debug-efc27b29f6a2e66a5bb6.json",
+					"name" : "AiraaTextFieldPlugin_qmllint_json",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "AiraaTextFieldPlugin_qmllint_module::@13636a6d286b7f7edd96",
+					"jsonFile" : "target-AiraaTextFieldPlugin_qmllint_module-Debug-5811771b09152d544b9e.json",
+					"name" : "AiraaTextFieldPlugin_qmllint_module",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "AiraaTextFieldPlugin_qmltyperegistration::@13636a6d286b7f7edd96",
+					"jsonFile" : "target-AiraaTextFieldPlugin_qmltyperegistration-Debug-cdbf64b0372bb0d2a86b.json",
+					"name" : "AiraaTextFieldPlugin_qmltyperegistration",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "AiraaTextFieldPlugin_tooling::@13636a6d286b7f7edd96",
+					"jsonFile" : "target-AiraaTextFieldPlugin_tooling-Debug-10888fdd6ee2a37767ab.json",
+					"name" : "AiraaTextFieldPlugin_tooling",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "AiraaTextField_copy_qmldir_file::@13636a6d286b7f7edd96",
+					"jsonFile" : "target-AiraaTextField_copy_qmldir_file-Debug-13043f025dd1cfd6a4e0.json",
+					"name" : "AiraaTextField_copy_qmldir_file",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "all_qmllint::@13636a6d286b7f7edd96",
+					"jsonFile" : "target-all_qmllint-Debug-12305988f1c1fa78dc57.json",
+					"name" : "all_qmllint",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "all_qmllint_json::@13636a6d286b7f7edd96",
+					"jsonFile" : "target-all_qmllint_json-Debug-71f4c4f7f6cee2982b78.json",
+					"name" : "all_qmllint_json",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "all_qmllint_module::@13636a6d286b7f7edd96",
+					"jsonFile" : "target-all_qmllint_module-Debug-3b0d8123df9460559645.json",
+					"name" : "all_qmllint_module",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "all_qmltyperegistrations::@13636a6d286b7f7edd96",
+					"jsonFile" : "target-all_qmltyperegistrations-Debug-7572c076978e0ef6ba9d.json",
+					"name" : "all_qmltyperegistrations",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_UUU_Tool::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_UUU_Tool-Debug-fbfd9bcb8233f62e4a67.json",
+					"name" : "app_UUU_Tool",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_UUU_Tool_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_UUU_Tool_autogen-Debug-7d4dc2fbb20a2314debb.json",
+					"name" : "app_UUU_Tool_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_UUU_Tool_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_UUU_Tool_autogen_timestamp_deps-Debug-dbcf193e6288704317d5.json",
+					"name" : "app_UUU_Tool_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_UUU_Tool_qmlimportscan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_UUU_Tool_qmlimportscan-Debug-6e33fc5dcbb435cb0624.json",
+					"name" : "app_UUU_Tool_qmlimportscan",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_UUU_Tool_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_UUU_Tool_qmllint-Debug-7c2d3c5d3b266d82bc82.json",
+					"name" : "app_UUU_Tool_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_UUU_Tool_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_UUU_Tool_qmllint_json-Debug-da779328b25a18a82299.json",
+					"name" : "app_UUU_Tool_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_UUU_Tool_qmllint_module::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_UUU_Tool_qmllint_module-Debug-2e15e0728e4d0e67ad35.json",
+					"name" : "app_UUU_Tool_qmllint_module",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_UUU_Tool_qmltyperegistration::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_UUU_Tool_qmltyperegistration-Debug-d8a52b299356c381a92d.json",
+					"name" : "app_UUU_Tool_qmltyperegistration",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_UUU_Tool_tooling::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_UUU_Tool_tooling-Debug-78eed82785c4030bc33f.json",
+					"name" : "app_UUU_Tool_tooling",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/build/Desktop_Qt_6_7_0-Debug",
+		"source" : "/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

@@ -1,0 +1,171 @@
+{
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"_qt_internal_qml_type_registration",
+			"qt6_add_qml_module",
+			"qt_add_qml_module",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"/home/test/Qt/6.7.0/gcc_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake",
+			"UUU_Tool_Components/AiraaTextField/CMakeLists.txt",
+			"CMakeLists.txt",
+			"UUU_Tool_Components/AiraaButton/CMakeLists.txt",
+			"UUU_Tool_Components/AiraaComboBox/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 13,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 776,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 541,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3025,
+				"parent" : 3
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 59,
+				"parent" : 5
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 776,
+				"parent" : 6
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 541,
+				"parent" : 7
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 3028,
+				"parent" : 8
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 3028,
+				"parent" : 3
+			},
+			{
+				"file" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 3,
+				"line" : 13,
+				"parent" : 11
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 776,
+				"parent" : 12
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 541,
+				"parent" : 13
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 3028,
+				"parent" : 14
+			},
+			{
+				"file" : 4
+			},
+			{
+				"command" : 3,
+				"file" : 4,
+				"line" : 13,
+				"parent" : 16
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 776,
+				"parent" : 17
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 541,
+				"parent" : 18
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 3028,
+				"parent" : 19
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 9,
+			"id" : "app_UUU_Tool_qmltyperegistration::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "AiraaTextFieldPlugin_qmltyperegistration::@13636a6d286b7f7edd96"
+		},
+		{
+			"backtrace" : 15,
+			"id" : "AiraaButtonPlugin_qmltyperegistration::@c04b70de9b3e88cf9aeb"
+		},
+		{
+			"backtrace" : 20,
+			"id" : "AiraaComboBoxPlugin_qmltyperegistration::@f6bf0285cdcbb755d4fe"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "QtInternalTargets"
+	},
+	"id" : "all_qmltyperegistrations::@13636a6d286b7f7edd96",
+	"name" : "all_qmltyperegistrations",
+	"paths" : 
+	{
+		"build" : "UUU_Tool_Components/AiraaTextField",
+		"source" : "UUU_Tool_Components/AiraaTextField"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}
