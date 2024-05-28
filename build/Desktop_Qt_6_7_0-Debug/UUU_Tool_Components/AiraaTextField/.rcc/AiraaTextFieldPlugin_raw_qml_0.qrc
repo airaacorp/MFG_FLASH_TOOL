@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/AiraaTextFieldPlugin/">
-    <file alias="AiraaTextField.qml">/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/UUU_Tool_Components/AiraaTextField/AiraaTextField.qml</file>
-  </qresource>
-</RCC>
-

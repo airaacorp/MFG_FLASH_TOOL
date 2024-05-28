@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/AiraaButtonPlugin/">
-    <file alias="AiraaButton.qml">/home/test/Downloads/Final_MFG_Tool/MFG_FLASH_TOOL/UUU_Tool_Components/AiraaButton/AiraaButton.qml</file>
-  </qresource>
-</RCC>
-
